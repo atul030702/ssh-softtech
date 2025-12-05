@@ -84,6 +84,8 @@ function NeuralBackground() {
                     </motion.div>
                 )}
             </div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-500/10 dark:bg-brand-600/20 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-900/10 rounded-full blur-[100px]" />
         </>
     );
 }
