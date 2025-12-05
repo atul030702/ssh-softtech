@@ -235,11 +235,12 @@ const Navbar: React.FC = () => {
             return matchingItem?.label || '';
         }
         const matchingItem = navItems.find(item => item.href === pathname);
-        
+
         return matchingItem?.label || '';
     }, [pathname, currentHash]);
 
     const isHashLink = (href: string): boolean => href.startsWith('#');
+    const homeRoute = '/';
 
     const handleTabClick = (label: string, href: string): void => {
         setMobileMenuOpen(false);
@@ -255,7 +256,7 @@ const Navbar: React.FC = () => {
 
     const isActive = (item: NavItem): boolean => {
         if (isHashLink(item.href)) {
-        return activeTab === item.label;
+            return activeTab === item.label;
         }
         return pathname === item.href || activeTab === item.label;
     };
@@ -264,8 +265,8 @@ const Navbar: React.FC = () => {
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                 scrolled 
-                ? 'bg-white/80 dark:bg-dark-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 py-4 shadow-sm dark:shadow-none' 
-                : 'bg-transparent py-6'
+                ? 'max-w-7xl py-4 mx-auto rounded-bl-xl rounded-br-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none' 
+                : 'max-w-full bg-transparent py-6'
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -280,31 +281,67 @@ const Navbar: React.FC = () => {
 
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-8">
-                        {navItems.map((item) => (
-                            isHashLink(item.href) ? (
-                                <a
-                                    key={item.label}
-                                    href={item.href}
-                                    className={`text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group
-                                        ${isActive(item)} ? 'text-blue-600 dark:text-blue-400': 'text-gray-700 dark:text-gray-300'
-                                    `}
-                                    onClick={() => handleTabClick(item.label, item.href)}
-                                >
-                                    {item.label}
-                                </a>
-                            ) : (
+                        {navItems.map((item) => {
+                            const isHashItem = isHashLink(item.href);
+                            const isHomePage = pathname === homeRoute;
+                            const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
+                            const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
+                            
+                            // If home route: show anchor tags for hash links, Link component for non-hash
+                            if (isHomePage) {
+                                return isHashItem ? (
+                                    <a
+                                        key={item.label}
+                                        href={item.href}
+                                        className={baseClass}
+                                        onClick={() => handleTabClick(item.label, item.href)}
+                                    >
+                                        {item.label}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={item.label}
+                                        href={item.href}
+                                        className={baseClass}
+                                        onClick={() => handleTabClick(item.label, item.href)}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            }
+                            
+                            // If NOT home route: show Link to "/" with label "Home" ONLY for first hash item, skip others
+                            // Non-hash items stay as regular Links
+                            if (!isHomePage && isHashItem) {
+                                // Only render the first hash link as "Home"
+                                const firstHashIndex = navItems.findIndex(i => isHashLink(i.href));
+                                if (firstHashIndex === navItems.indexOf(item)) {
+                                    return (
+                                        <Link
+                                            key={item.label}
+                                            href="/"
+                                            className={baseClass}
+                                            onClick={() => handleTabClick(item.label, item.href)}
+                                        >
+                                            Home
+                                        </Link>
+                                    );
+                                }
+                                return null; // Skip other hash items
+                            }
+                            
+                            // Non-hash items on non-home routes
+                            return !isHashItem ? (
                                 <Link
                                     key={item.label}
                                     href={item.href}
-                                    className={`text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group
-                                        ${isActive(item)} ? 'text-blue-600 dark:text-blue-400': 'text-gray-700 dark:text-gray-300'
-                                    `}
+                                    className={baseClass}
                                     onClick={() => handleTabClick(item.label, item.href)}
                                 >
                                     {item.label}
                                 </Link>
-                            )
-                        ))}
+                            ) : null;
+                        })}
                         
                         <ModeToggle />
                     </div>
@@ -326,31 +363,67 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu */}
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-dark-900 border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-4 shadow-2xl">
-                    {navItems.map((item) => (
-                        isHashLink(item.href) ? (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                className={`text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group
-                                    ${isActive(item)} ? 'text-blue-600 dark:text-blue-400': 'text-gray-700 dark:text-gray-300'
-                                `}
-                                onClick={() => handleTabClick(item.label, item.href)}
-                            >
-                                {item.label}
-                            </a>
-                        ) : (
+                    {navItems.map((item) => {
+                        const isHashItem = isHashLink(item.href);
+                        const isHomePage = pathname === homeRoute;
+                        const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
+                        const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
+                        
+                        // If home route: show anchor tags for hash links, Link component for non-hash
+                        if (isHomePage) {
+                            return isHashItem ? (
+                                <a
+                                    key={item.label}
+                                    href={item.href}
+                                    className={baseClass}
+                                    onClick={() => handleTabClick(item.label, item.href)}
+                                >
+                                    {item.label}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={baseClass}
+                                    onClick={() => handleTabClick(item.label, item.href)}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        }
+                        
+                        // If NOT home route: show Link to "/" with label "Home" ONLY for first hash item, skip others
+                        // Non-hash items stay as regular Links
+                        if (!isHomePage && isHashItem) {
+                            // Only render the first hash link as "Home"
+                            const firstHashIndex = navItems.findIndex(i => isHashLink(i.href));
+                            if (firstHashIndex === navItems.indexOf(item)) {
+                                return (
+                                    <Link
+                                        key={item.label}
+                                        href="/"
+                                        className={baseClass}
+                                        onClick={() => handleTabClick(item.label, item.href)}
+                                    >
+                                        Home
+                                    </Link>
+                                );
+                            }
+                            return null; // Skip other hash items
+                        }
+                        
+                        // Non-hash items on non-home routes
+                        return !isHashItem ? (
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group
-                                    ${isActive(item)} ? 'text-blue-600 dark:text-blue-400': 'text-gray-700 dark:text-gray-300'
-                                `}
+                                className={baseClass}
                                 onClick={() => handleTabClick(item.label, item.href)}
                             >
                                 {item.label}
                             </Link>
-                        )
-                    ))}
+                        ) : null;
+                    })}
                 </div>
             )}
         </nav>
