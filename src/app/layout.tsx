@@ -4,6 +4,7 @@ import "./globals.css";
 
 import ThemeProvider from "../Provider/ThemeProvider";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>  
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} w-full antialiased font-sans`}
       >
@@ -36,6 +37,7 @@ export default function RootLayout({
             <main className="flex flex-1 flex-col">
               {children}
             </main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
