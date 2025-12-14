@@ -27,3 +27,22 @@ export const colorClasses: Record<string, string> = {
     emerald: "group-hover:bg-emerald-50 dark:group-hover:bg-white/10",
     orange: "group-hover:bg-orange-50 dark:group-hover:bg-white/10",
 };
+
+export const footerItems = [
+    {
+        label: 'Book a Demo',
+        href: '#',
+    },
+    {
+        label: 'About Us',
+        href: '/about',
+    },
+    {
+        label: 'Contact Us',
+        href: '/contact',
+    },
+    {
+        label: 'Privacy Policy',
+        href: '/privacy-policy',
+    },
+];

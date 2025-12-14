@@ -27,14 +27,14 @@ export class ParticleClass {
         this.canvas.height = window.innerHeight;
 
         // create particles count to match new size:
-        const count = Math.floor((this.canvas.width * this.canvas.height) / 15000);
+        const count = Math.floor((this.canvas.width * this.canvas.height) / 18000);
 
         if (count !== this.particles.length) {
             this.initParticles(count);
         }
     };
 
-    private initParticles(count = Math.floor((this.canvas.width * this.canvas.height) / 15000)) {
+    private initParticles(count = Math.floor((this.canvas.width * this.canvas.height) / 18000)) {
         this.particles = []
         for (let i = 0; i < count; i++) {
             // Particle needs the canvas size
@@ -76,7 +76,7 @@ export class ParticleClass {
 
         // DRAW CONNECTIONS
         ctx.lineWidth = 0.5;
-        const maxConnectionDistance = 100; // General connection distance
+        const maxConnectionDistance = 150; // General connection distance
 
         for (let i = 0; i < this.particles.length; i++) {
             for (let j = i + 1; j < this.particles.length; j++) {
@@ -127,11 +127,11 @@ class Particle {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height; 
         
-        this.size = Math.random() * 2 + 0.5;
+        this.size = Math.random() * 2 + 1.5;
 
         // Simple random drift speed
-        this.speedX = (Math.random() - 0.5) * 0.3; 
-        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.5; 
+        this.speedY = (Math.random() - 0.5) * 0.5;
 
         this.opacity = Math.random() * 0.5 + 0.2;
     };

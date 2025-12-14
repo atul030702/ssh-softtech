@@ -225,10 +225,10 @@ const ContactSection = () => {
                         <p className="text-slate-600 dark:text-gray-300">
                             Prefer to email us directly? Reach out at{' '}
                             <a
-                                href="mailto:info@sshsofttech.com"
+                                href="mailto:connect@sshsofttech.com"
                                 className="text-brand-light dark:text-brand-dark hover:underline"
                             >
-                                info@sshsofttech.com
+                                connect@sshsofttech.com
                             </a>
                         </p>
                     </motion.div>

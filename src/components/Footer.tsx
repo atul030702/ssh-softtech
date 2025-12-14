@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import {
     Mail,
@@ -10,6 +11,8 @@ import {
     Facebook,
     Instagram,
 } from 'lucide-react';
+
+import { footerItems } from '../utils/constants';
 
 const Footer = () => {
     return (
@@ -31,11 +34,11 @@ const Footer = () => {
                                 once: true,
                             }}
                         >
-                            <div className="flex items-center mb-6">
+                            <Link href="/" className="flex items-center mb-4 text-2xl font-bold text-slate-900 dark:text-white">
                                 <span className="text-2xl font-bold text-brand-light dark:text-brand-dark">SSH</span>
-                                <span className="text-2xl font-bold text-slate-900 dark:text-white">Softtech</span>
-                            </div>
-                            <p className="text-sm text-slate-600 dark:text-gray-300 mb-6">
+                                Softtech
+                            </Link>
+                            <p className="text-sm text-slate-600 dark:text-gray-300 mb-4">
                                 Transforming ideas into exceptional software solutions. Your
                                 vision, our expertise.
                             </p>
@@ -77,12 +80,11 @@ const Footer = () => {
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Services</h3>
                             <ul className="space-y-3">
                                 {[
+                                    'AI Solutions',
                                     'Web Development',
                                     'Mobile App Development',
                                     'Custom Software',
-                                    'E-commerce Development',
-                                    'Cloud Computing',
-                                    'AI & ML Solutions',
+                                    'E-Commerce Development',
                                 ].map((service, index) => (
                                     <li key={index}>
                                         <a
@@ -111,19 +113,14 @@ const Footer = () => {
                         >
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Company</h3>
                             <ul className="space-y-3">
-                                {[
-                                    'About Us',
-                                    'Our Team',
-                                    'Blog',
-                                    'Case Studies',
-                                ].map((item, index) => (
+                                {footerItems.map((item, index) => (
                                     <li key={index}>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            href={item.href}
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-colors hover:translate-x-1 inline-block"
                                         >
-                                            {item}
-                                        </a>
+                                            {item.label}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -146,15 +143,15 @@ const Footer = () => {
                             <ul className="space-y-3">
                                 <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
                                     <MapPin size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    123 Tech Park, Silicon Valley, CA
+                                    Digha, Patna (800013)
                                 </li>
                                 <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
                                     <Phone size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    +1 (555) 123-4567
+                                    +91 83038 94288
                                 </li>
                                 <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
                                     <Mail size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    info@sshsofttech.com
+                                    connect@sshsofttech.com
                                 </li>
                             </ul>
                         </motion.div>

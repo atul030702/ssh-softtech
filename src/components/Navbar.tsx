@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
                     <Link href="/"
                         className="flex items-center gap-2 font-bold text-2xl tracking-tight"
                     >
-                        <span className="text-brand-light font-extrabold">SSH</span>
+                        <span className="text-brand-light dark:text-brand-dark font-extrabold">SSH</span>
                         <span className="text-slate-900 dark:text-white">SOFTTECH</span>
                     </Link>
 

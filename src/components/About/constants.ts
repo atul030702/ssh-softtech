@@ -36,7 +36,7 @@ export const stats = [
     },
     {
         label: 'Happy Clients',
-        value: '200+',
+        value: '100+',
     },
     {
         label: 'Team Members',

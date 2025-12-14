@@ -27,17 +27,17 @@ const AboutSection = () => {
                     }}
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-                        About SSH Softtech
+                        About Us
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg">
-                        Founded in 2014, SSH Softtech has been at the forefront of Artificial Intelligence, digital
+                        SSH Softtech has been at the forefront of Artificial Intelligence, digital
                         innovation, and helping businesses transform their ideas into powerful
                         software solutions.
                     </p>
                 </motion.div>
                 {/* Stats Section */}
                 <motion.div
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8 my-20"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16 bg-brand-light/80 dark:bg-brand-dark/80 px-12 py-8 rounded-3xl"
                     initial={{
                         opacity: 0,
                         y: 30,
@@ -74,10 +74,10 @@ const AboutSection = () => {
                                 once: true,
                             }}
                         >
-                            <div className="text-4xl md:text-5xl font-bold text-brand-light dark:text-brand-dark mb-2">
+                            <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                                 {stat.value}
                             </div>
-                            <div className="text-gray-600 dark:text-gray-400 font-medium">
+                            <div className="text-blue-50 dark:text-white/80 font-medium">
                                 {stat.label}
                             </div>
                         </motion.div>
