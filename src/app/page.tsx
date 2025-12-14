@@ -1,5 +1,4 @@
 import Hero from "../components/Hero/Hero";
-//import { ServicesSection } from "../components/Services";
 import Industries from "../components/Industry/Industries";
 import Services from "../components/Services/services";
 

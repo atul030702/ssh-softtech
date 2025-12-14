@@ -1,53 +1,10 @@
 "use client"
 
 import { motion } from 'motion/react';
-import { Target, Eye, Award, TrendingUp } from 'lucide-react';
+
+import { values, stats } from './constants';
 
 const AboutSection = () => {
-    const stats = [
-        {
-            label: 'Projects Completed',
-            value: '500+',
-        },
-        {
-            label: 'Happy Clients',
-            value: '200+',
-        },
-        {
-            label: 'Team Members',
-            value: '50+',
-        },
-        {
-            label: 'Years Experience',
-            value: '10+',
-        },
-    ];
-    const values = [
-        {
-            icon: <Target size={32} />,
-            title: 'Our Mission',
-            description:
-                'To empower businesses with innovative technology solutions that drive growth and transform digital experiences.',
-        },
-        {
-            icon: <Eye size={32} />,
-            title: 'Our Vision',
-            description:
-                'To be the leading software development partner recognized for excellence, innovation, and client success.',
-        },
-        {
-            icon: <Award size={32} />,
-            title: 'Our Values',
-            description:
-                'Excellence, integrity, innovation, and collaboration guide everything we do for our clients and team.',
-        },
-        {
-            icon: <TrendingUp size={32} />,
-            title: 'Our Approach',
-            description:
-                'Agile methodology combined with deep industry expertise ensures we deliver solutions that exceed expectations.',
-        },
-    ];
 
     return (
         <section id="about" className="py-28 bg-white dark:bg-dark-950">
@@ -174,7 +131,7 @@ const AboutSection = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 };
 
 export default AboutSection;

@@ -67,12 +67,6 @@ export class ParticleClass {
         const ctx = this.ctx;
         const canvas = this.canvas;
 
-        // Background gradient based on theme
-        // const bgGradient = this.isDarkMode()
-        // ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
-        // : 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #dbeafe 100%)';
-        // canvas.style.background = bgGradient;
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         this.particles.forEach((p) => {
