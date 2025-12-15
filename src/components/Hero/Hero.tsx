@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import HeroCards from './HeroRightCards';
+import { ArrowRight, Cpu, Bot } from 'lucide-react';
+import HeroCards from './HeroCards';
 import NeuralBackground from '../NeuralBackground';
 
 const Hero: React.FC = () => {
@@ -33,9 +33,9 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm text-sm font-medium text-slate-600 dark:text-gray-300 mb-4 hover:border-brand-light/90 transition-colors cursor-default"
                     >
-                        <Sparkles size={14} className="text-brand-light dark:text-brand-dark" />
+                        <Bot size={16} className="text-brand-light dark:text-brand-dark" />
                         <span className="text-slate-500 dark:text-gray-400">
-                            Chatbot | Generative AI | Custom Software
+                            Chatbots • Generative AI • RAG Systems
                         </span>
                     </motion.div>
 
@@ -44,23 +44,13 @@ const Hero: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="w-full text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight"
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
                     >
                         From an Idea to Impact: <br />
-                        <span className="text-brand-light text-nowrap">
-                            Engineering Your Digital Future
+                        <span className="text-transparent bg-clip-text bg-linear-to-b from-brand-dark to-brand-light dark:from-white dark:to-white/40">
+                            Engineering Intelligent Software
                         </span>
                     </motion.h1>
-
-                    {/* Subtext 
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="max-w-3xl text-center text-lg md:text-xl text-slate-600 dark:text-gray-400 mb-8 mx-auto leading-relaxed"
-                    >
-                        Transform your vision into reality with our cutting-edge software development, cloud solutions, and AI-powered innovations.
-                    </motion.p>*/}
 
                     {/* Buttons */}
                     <motion.div
@@ -69,8 +59,9 @@ const Hero: React.FC = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <button className="w-full sm:w-auto px-8 py-4 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
-                            Build AI with Us
+                        <button className="w-full inline-flex items-center sm:w-auto px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
+                            <Cpu size={18} className="text-white" />
+                            Build Your AI Solution
                         </button>
                         <button className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer">
                             Book a Free Demo

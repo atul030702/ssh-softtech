@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'motion/react';
-import { Code, Smartphone, Database, Globe, Cloud, CheckCircle } from 'lucide-react';
+import { Database, Cloud, Activity, LayoutTemplate, Server } from 'lucide-react';
 
 import { colorClasses } from '../../utils/constants';
 
@@ -55,29 +55,29 @@ const HeroCards: React.FC = () => {
                 <div className="flex flex-col gap-6 md:translate-y-8">
                     <FeatureCard
                         variants={cardVariants}
-                        icon={<Code className="text-brand-light" size={28} />}
-                        title="Web Development"
-                        subtitle="Custom Solutions"
-                        meta="Progress: 80%"
+                        icon={<LayoutTemplate className="text-brand-light" size={28} />}
+                        title="Intelligent Apps"
+                        subtitle="Web & Mobile + AI"
                         color="blue"
                         delay={0}
                     >
-                        {/* Micro-interaction: Simple Progress Bar */}
-                        <div className="w-full h-1 bg-gray-200 dark:bg-gray-700/50 rounded-full mt-3 overflow-hidden">
-                            <motion.div
-                                initial={{ width: "0%" }}
-                                animate={{ width: "80%" }}
-                                transition={{ duration: 1.5, delay: 1 }}
-                                className="h-full bg-brand-light rounded-full"
-                            />
+                        {/* Micro-interaction: UI skeleton loading */}
+                        <div className="mt-3 space-y-2">
+                            <div className="flex gap-2">
+                                <div className="w-8 h-8 rounded-lg bg-slate-200 dark:bg-white/10" />
+                                <div className="flex-1 space-y-1 py-1">
+                                    <div className="h-2 bg-slate-200 dark:bg-white/10 rounded w-3/4" />
+                                    <div className="h-2 bg-slate-200 dark:bg-white/10 rounded w-1/2" />
+                                </div>
+                            </div>
                         </div>
                     </FeatureCard>
 
                     <FeatureCard
                         variants={cardVariants}
                         icon={<Database className="text-purple-500 dark:text-purple-400" size={28} />}
-                        title="Backend Systems"
-                        subtitle="Scalable Infrastructure"
+                        title="Distributed Systems"
+                        subtitle="Scalable & Performant"
                         color="purple"
                         delay={0.1}
                     >
@@ -95,30 +95,70 @@ const HeroCards: React.FC = () => {
                 </div>
 
                 {/* Column 2 (Center) - The Anchor Card - Popped Up */}
-                <div className="flex justify-center relative z-20 md:-mt-8 order-first md:order-0 mb-8 md:mb-0">
+                <div className="flex justify-center relative z-20 md:-mt-12 order-first md:order-0 mb-8 md:mb-0">
                     <motion.div
                         variants={cardVariants}
                         animate={floatingAnimation}
-                        className="w-full max-w-sm md:max-w-full aspect-square md:aspect-auto md:h-[380px] rounded-3xl p-8 flex flex-col justify-center items-center text-center border border-slate-200/50 dark:border-white/20 relative overflow-hidden group transition-all duration-400 md:scale-110 bg-slate-50/80 dark:bg-gray-700/50 backdrop-blur-sm"
+                        className="w-full max-w-sm md:max-w-full aspect-square md:aspect-auto md:h-[420px] bg-slate-50/80 dark:bg-gray-700/50 backdrop-blur-sm rounded-3xl p-8 flex flex-col justify-between text-left shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(110,140,251,0.15)] border border-slate-200/50 dark:border-white/20 relative overflow-hidden group transition-all duration-500 md:scale-110 hover:shadow-2xl"
                     >
                         {/* Background decoration */}
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-brand-500/5 dark:bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-                        <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-500/10 dark:bg-blue-500/30 rounded-full blur-3xl -ml-16 -mb-16 group-hover:scale-150 transition-transform duration-700 delay-100" />
+                        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-[80px] pointer-events-none" />
 
-                        <motion.div
-                            whileHover={{ rotate: 360, scale: 1.1 }}
-                            transition={{ duration: 0.8, type: "spring" }}
-                            className="relative z-10 bg-white/80 dark:bg-white/10 p-5 rounded-2xl mb-8 ring-1 ring-slate-200 dark:ring-white/20 backdrop-blur-md shadow-lg"
-                        >
-                            <CheckCircle className="text-brand-light dark:text-white w-12 h-12" />
-                        </motion.div>
+                        {/* Header */}
+                        <div className="relative z-10">
+                            <div className="flex items-center justify-between mb-4">
+                                <div className="p-3 bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl backdrop-blur-md">
+                                    <Activity className="text-brand-600 dark:text-brand-400" size={24} />
+                                </div>
+                                <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                    System Online
+                                </div>
+                            </div>
+                            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Deployed Solutions</h3>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm">Enterprise-grade architectures running in production.</p>
+                        </div>
 
-                        <h3 className="text-5xl md:text-6xl font-bold text-slate-800 dark:text-white mb-4 tracking-tight">20+</h3>
-                        <p className="text-slate-600 dark:text-blue-100 font-medium text-lg mb-8 max-w-[200px] leading-snug">Projects Delivered Successfully</p>
+                        {/* Visual: Neural Network / Connectivity */}
+                        <div className="relative h-24 w-full mt-4 flex items-center justify-center">
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-24 h-24 rounded-full border border-brand-500/30 animate-[spin_10s_linear_infinite]" />
+                                <div className="w-16 h-16 rounded-full border border-brand-400/50 absolute animate-[spin_7s_linear_infinite_reverse]" />
+                                <motion.div
+                                    className="w-2 h-2 rounded-full bg-brand-400 shadow-[0_0_10px_rgba(96,165,250,0.8)]"
+                                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.8, 1] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                />
+                            </div>
 
-                        <div className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-white/90 bg-white/50 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 transition-colors px-5 py-2.5 rounded-full backdrop-blur-md border border-slate-200 dark:border-white/10 cursor-default">
-                            <Globe size={16} className="text-brand-light dark:text-white" />
-                            <span>Global Reach</span>
+
+                            {/* Connecting lines */}
+                            <div className="absolute w-full h-px bg-linear-to-r from-transparent via-brand-500/20 to-transparent top-1/2 overflow-hidden">
+                                <motion.div
+                                    className="absolute inset-0 bg-linear-to-r from-transparent via-brand-400/80 to-transparent w-1/2 h-full blur-[1px]"
+                                    animate={{ x: ["-100%", "200%"] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+                                />
+                            </div>
+                            <div className="absolute h-full w-px bg-linear-to-b from-transparent via-brand-500/20 to-transparent left-1/2 overflow-hidden">
+                                <motion.div
+                                    className="absolute inset-0 bg-linear-to-b from-transparent via-brand-400/80 to-transparent w-full h-1/2 blur-[1px]"
+                                    animate={{ y: ["-100%", "200%"] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Footer Stats */}
+                        <div className="flex justify-between items-center w-full relative z-10 pt-4 border-t border-slate-200 dark:border-white/5">
+                            <div>
+                                <p className="text-2xl font-bold text-slate-900 dark:text-white">99.9%</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-500 uppercase tracking-wider mt-1">Uptime</p>
+                            </div>
+                            <div className="text-right">
+                                <p className="text-2xl font-bold text-slate-900 dark:text-white">20+</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-500 uppercase tracking-wider mt-1">Projects</p>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
@@ -127,34 +167,31 @@ const HeroCards: React.FC = () => {
                 <div className="flex flex-col gap-6 md:translate-y-8">
                     <FeatureCard
                         variants={cardVariants}
-                        icon={<Smartphone className="text-emerald-500 dark:text-emerald-400" size={28} />}
-                        title="Mobile Apps"
-                        subtitle="iOS & Android"
-                        color="emerald"
+                        icon={<Server className="text-rose-500 dark:text-rose-400" size={28} />}
+                        title="MCP Infrastructure"
+                        subtitle="Future Ready Tech"
+                        color="rose"
                         delay={0.2}
                     >
                         <div className="flex gap-2 mt-3 pl-1">
-                            <div className="h-6 w-10 rounded bg-emerald-50 border border-emerald-100 dark:bg-emerald-500/10 dark:border-emerald-500/20 flex items-center justify-center">
-                                <div className="w-1 h-2 bg-emerald-400 dark:bg-emerald-500/50 rounded-[1px]"></div>
-                            </div>
-                            <div className="h-6 w-10 rounded bg-blue-50 border border-blue-100 dark:bg-blue-500/10 dark:border-blue-500/20 flex items-center justify-center">
-                                <div className="w-2.5 h-1.5 bg-blue-400 dark:bg-blue-500/50 rounded-[1px]"></div>
-                            </div>
+                            <div className="h-2 w-8 bg-rose-200 dark:bg-rose-500/20 rounded-full" />
+                            <div className="h-2 w-8 bg-rose-300 dark:bg-rose-500/40 rounded-full" />
+                            <div className="h-2 w-4 bg-rose-400 dark:bg-rose-500/60 rounded-full" />
                         </div>
                     </FeatureCard>
 
                     <FeatureCard
                         variants={cardVariants}
                         icon={<Cloud className="text-orange-500 dark:text-orange-400" size={28} />}
-                        title="Cloud & AI Solutions"
-                        subtitle="Future Ready Tech"
+                        title="Cloud Providers"
+                        subtitle="Secure and Cost-efficient"
                         color="orange"
                         delay={0.3}
                     >
                         <div className="mt-3 flex items-center gap-2 text-[10px] font-medium text-orange-600/70 dark:text-orange-200/50">
                             <span className="px-2 py-0.5 rounded-md bg-orange-50/50 border border-orange-100 dark:bg-orange-500/10 dark:border-orange-500/20">AWS</span>
                             <span className="px-2 py-0.5 rounded-md bg-orange-50/50 border border-orange-100 dark:bg-orange-500/10 dark:border-orange-500/20">Azure</span>
-                            <span className="px-2 py-0.5 rounded-md bg-orange-50/50 border border-orange-100 dark:bg-orange-500/10 dark:border-orange-500/20">AI</span>
+                            <span className="px-2 py-0.5 rounded-md bg-orange-50/50 border border-orange-100 dark:bg-orange-500/10 dark:border-orange-500/20">GCP</span>
                         </div>
                     </FeatureCard>
                 </div>
