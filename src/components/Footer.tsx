@@ -16,7 +16,7 @@ import { footerItems } from '../utils/constants';
 
 const Footer = () => {
     return (
-        <footer className="bg-slate-50 dark:bg-[#050B14] text-slate-600 dark:text-gray-300 border-t border-slate-200 dark:border-white/10">
+        <footer className="bg-slate-50 dark:bg-[#02060B] text-slate-600 dark:text-gray-300 border-t border-slate-200 dark:border-white/10">
             <div className="container max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="md:col-span-1">
