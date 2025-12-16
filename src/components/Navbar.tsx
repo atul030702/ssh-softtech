@@ -78,14 +78,14 @@ const Navbar: React.FC = () => {
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
                 ? 'max-w-7xl py-4 mx-auto rounded-bl-xl rounded-br-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none'
-                : 'max-w-full bg-transparent py-6'
+                : 'max-w-full bg-transparent py-4 sm:py-6'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/"
-                        className="flex items-center gap-2 font-bold text-2xl tracking-tight"
+                        className="flex items-center gap-2 font-bold text-lg sm:text-xl md:text-2xl tracking-tight"
                     >
                         <span className="text-brand-light dark:text-brand-dark font-extrabold">SSH</span>
                         <span className="text-slate-900 dark:text-white">SOFTTECH</span>
@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-dark-900 border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-4 shadow-2xl">
+                <div className="md:hidden absolute top-full left-0 w-full bg-slate-100 dark:bg-[#050B14] border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-4 shadow-2xl">
                     {navItems.map((item) => {
                         const isHashItem = isHashLink(item.href);
                         const isHomePage = pathname === homeRoute;

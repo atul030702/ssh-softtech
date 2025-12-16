@@ -43,7 +43,7 @@ const HeroCards: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-7xl mx-auto mt-8 px-4"
+            className="hidden sm:block w-full max-w-7xl mx-auto mt-8 px-4"
         >
             {/* 
                 The group/cards class allows us to style children based on the hover state of this container.

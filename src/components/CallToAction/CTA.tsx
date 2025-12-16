@@ -7,14 +7,14 @@ import { ArrowRight, Bot } from 'lucide-react';
 const CTA: React.FC = () => {
     return (
         <section className="relative w-full py-32 lg:py-40 overflow-hidden bg-slate-50 dark:bg-[#050B14] flex flex-col items-center justify-center">
-
-
-            <div className="absolute bottom-0 left-1/2 top-10 -translate-x-1/2 w-[150%] h-[750px]
-                  rounded-t-[50%]
-                  bg-slate-50 dark:bg-[#050B14]
-                  border-t border-brand-light/50 dark:border-white/20
-                  shadow-[inset_0_20px_50px_rgba(59,130,246,0.3)] dark:shadow-[inset_0_20px_50px_rgba(255,255,255,0.3)]"
+            {/* 1. Spherical shape */}
+            <div className="absolute bottom-0 left-1/2 top-10 -translate-x-1/2 w-[250%] md:w-[150%] h-[500px] md:h-[750px]
+                rounded-t-[100%] md:rounded-t-[50%]
+                bg-slate-50 dark:bg-[#050B14]
+                border-t border-brand-light/50 dark:border-white/20
+                shadow-[inset_0_20px_50px_rgba(59,130,246,0.3)] dark:shadow-[inset_0_20px_50px_rgba(255,255,255,0.3)]"
             />
+
             {/* 2. Content */}
             <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mt-15">
                 <motion.div
@@ -31,7 +31,7 @@ const CTA: React.FC = () => {
                         className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 mx-auto tracking-tight text-black dark:text-white max-w-3xl"
                     >
                         Ready to Engineer Your <br />
-                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-400 to-purple-400 animate-gradient-x">
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 animate-gradient-x">
                             Autonomous Future?
                         </span>
                     </motion.h2>
@@ -42,7 +42,7 @@ const CTA: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-400 mb-10 mx-auto leading-relaxed max-w-4xl"
+                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 mx-auto leading-relaxed max-w-4xl"
                     >
                         We don't just wrap APIs. We build autonomous Agentic AI workflows and precision Retrieval-Augmented Generation (RAG) systems that solve complex enterprise challenges.
                     </motion.p>
@@ -65,11 +65,9 @@ const CTA: React.FC = () => {
                         </button>
 
                         {/* Secondary Button */}
-                        <button className="group w-full sm:w-auto rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all cursor-pointer hover:bg-white/10 hover:border-white/20">
-                            <div className="flex items-center justify-center gap-2">
-                                <span>Book a Free Demo</span>
-                                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                            </div>
+                        <button className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer">
+                            Book a Free Demo
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </motion.div>
                 </motion.div>
