@@ -99,60 +99,30 @@ const Navbar: React.FC = () => {
                             const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
                             const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
 
-                            // If home route: show anchor tags for hash links, Link component for non-hash
-                            if (isHomePage) {
-                                return isHashItem ? (
-                                    <a
-                                        key={item.label}
-                                        href={item.href}
-                                        className={baseClass}
-                                        onClick={() => handleTabClick(item.label, item.href)}
-                                    >
-                                        {item.label}
-                                    </a>
-                                ) : (
-                                    <Link
-                                        key={item.label}
-                                        href={item.href}
-                                        className={baseClass}
-                                        onClick={() => handleTabClick(item.label, item.href)}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                );
-                            }
+                            // Determine the correct href
+                            // If it's a hash link and we are NOT on home, prepend "/" to make it navigate home first
+                            // If it's a page link, use as is
+                            const href = isHashItem && !isHomePage ? `/${item.href}` : item.href;
 
-                            // If NOT home route: show Link to "/" with label "Home" ONLY for first hash item, skip others
-                            // Non-hash items stay as regular Links
-                            if (!isHomePage && isHashItem) {
-                                // Only render the first hash link as "Home"
-                                const firstHashIndex = navItems.findIndex(i => isHashLink(i.href));
-                                if (firstHashIndex === navItems.indexOf(item)) {
-                                    return (
-                                        <Link
-                                            key={item.label}
-                                            href="/"
-                                            className={baseClass}
-                                            onClick={() => handleTabClick(item.label, item.href)}
-                                        >
-                                            Home
-                                        </Link>
-                                    );
-                                }
-                                return null; // Skip other hash items
-                            }
-
-                            // Non-hash items on non-home routes
-                            return !isHashItem ? (
+                            return isHomePage && isHashItem ? (
+                                <a
+                                    key={item.label}
+                                    href={href}
+                                    className={baseClass}
+                                    onClick={() => handleTabClick(item.label, href)}
+                                >
+                                    {item.label}
+                                </a>
+                            ) : (
                                 <Link
                                     key={item.label}
-                                    href={item.href}
+                                    href={href}
                                     className={baseClass}
-                                    onClick={() => handleTabClick(item.label, item.href)}
+                                    onClick={() => handleTabClick(item.label, href)}
                                 >
                                     {item.label}
                                 </Link>
-                            ) : null;
+                            );
                         })}
 
                         <ModeToggle />
@@ -181,28 +151,27 @@ const Navbar: React.FC = () => {
                         const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
                         const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
 
+                        const href = isHashItem && !isHomePage ? `/${item.href}` : item.href;
                         // If home route: show anchor tags for hash links, Link component for non-hash
-                        if (isHomePage) {
-                            return isHashItem ? (
-                                <a
-                                    key={item.label}
-                                    href={item.href}
-                                    className={baseClass}
-                                    onClick={() => handleTabClick(item.label, item.href)}
-                                >
-                                    {item.label}
-                                </a>
-                            ) : (
-                                <Link
-                                    key={item.label}
-                                    href={item.href}
-                                    className={baseClass}
-                                    onClick={() => handleTabClick(item.label, item.href)}
-                                >
-                                    {item.label}
-                                </Link>
-                            );
-                        }
+                        return isHomePage && isHashItem ? (
+                            <a
+                                key={item.label}
+                                href={href}
+                                className={baseClass}
+                                onClick={() => handleTabClick(item.label, href)}
+                            >
+                                {item.label}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.label}
+                                href={href}
+                                className={baseClass}
+                                onClick={() => handleTabClick(item.label, href)}
+                            >
+                                {item.label}
+                            </Link>
+                        );
 
                         // If NOT home route: show Link to "/" with label "Home" ONLY for first hash item, skip others
                         // Non-hash items stay as regular Links

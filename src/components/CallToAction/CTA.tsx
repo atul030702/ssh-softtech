@@ -10,13 +10,13 @@ const CTA: React.FC = () => {
             {/* 1. Spherical shape */}
             <div className="absolute bottom-0 left-1/2 top-10 -translate-x-1/2 w-[250%] md:w-[150%] h-[500px] md:h-[750px]
                 rounded-t-[100%] md:rounded-t-[50%]
-                bg-slate-50 dark:bg-[#050B14]
+                bg-slate-100 dark:bg-[#050B14]
                 border-t border-brand-light/50 dark:border-white/20
                 shadow-[inset_0_20px_50px_rgba(59,130,246,0.3)] dark:shadow-[inset_0_20px_50px_rgba(255,255,255,0.3)]"
             />
 
             {/* 2. Content */}
-            <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mt-15">
+            <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mt-8 sm:mt-16">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

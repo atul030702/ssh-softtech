@@ -8,7 +8,7 @@ const AboutSection = () => {
 
     return (
         <section id="about" className="py-28 bg-white dark:bg-dark-950">
-            <div className="container max-w-7xl max-h-screen mx-auto px-4 mb-8">
+            <div className="container max-w-7xl mx-auto px-4 mb-8">
                 <motion.div
                     className="text-center mb-16"
                     initial={{
@@ -37,7 +37,7 @@ const AboutSection = () => {
                 </motion.div>
                 {/* Stats Section */}
                 <motion.div
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16 bg-brand-light/80 dark:bg-brand-dark/80 px-12 py-8 rounded-3xl"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16 bg-brand-light/80 dark:bg-brand-dark/80 px-6 md:px-12 py-8 rounded-3xl"
                     initial={{
                         opacity: 0,
                         y: 30,

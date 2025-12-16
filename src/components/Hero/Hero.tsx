@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-2 sm:px-4 py-1.5 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm text-sm font-medium text-slate-600 dark:text-gray-300 mb-4 hover:border-brand-light/90 transition-colors cursor-default"
+                        className="inline-flex items-center gap-2 px-2 sm:px-4 py-1.5 mb-8 sm:mb-4 rounded-full bg-slate-50/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm text-sm font-medium text-slate-600 dark:text-gray-300 hover:border-brand-light/90 transition-colors cursor-default"
                     >
                         <Bot size={16} className="text-brand-light dark:text-brand-dark" />
                         <span className="text-slate-500 dark:text-gray-400">
