@@ -1,6 +1,8 @@
-import * as motion from 'motion/react-client';
+import dynamic from 'next/dynamic';
 import { Send } from 'lucide-react';
 
+import ScrollReveal from '../ui/ScrollReveal';
+//const ContactDotsBackground = dynamic(() => import('./ContactDotsBackground'));
 import ContactDotsBackground from './ContactDotsBackground';
 
 const ContactSection = () => {
@@ -14,23 +16,7 @@ const ContactSection = () => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mx-auto">
-                    <motion.div
-                        className="text-center mb-12"
-                        initial={{
-                            opacity: 0,
-                            y: -20,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            y: 0,
-                        }}
-                        transition={{
-                            duration: 0.6,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
-                    >
+                    <ScrollReveal className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
                             Ready to Transform Your Digital Presence?
                         </h2>
@@ -38,35 +24,15 @@ const ContactSection = () => {
                             Let's discuss how SSH Softtech can help you achieve your
                             technology goals. Schedule a meeting with our team today.
                         </p>
-                    </motion.div>
-                    <motion.div
+                    </ScrollReveal>
+
+                    <ScrollReveal
+                        delay={0.2}
                         className="bg-white dark:bg-white/5 backdrop-blur-lg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-white/20 shadow-2xl dark:shadow-none"
-                        initial={{
-                            opacity: 0,
-                            y: 30,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            y: 0,
-                        }}
-                        transition={{
-                            duration: 0.6,
-                            delay: 0.2,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
                     >
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <motion.div
-                                    whileHover={{
-                                        scale: 1.02,
-                                    }}
-                                    transition={{
-                                        duration: 0.2,
-                                    }}
-                                >
+                                <div className="group transition-transform duration-200 hover:scale-[1.02]">
                                     <label
                                         htmlFor="name"
                                         className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2"
@@ -79,15 +45,8 @@ const ContactSection = () => {
                                         className="w-full bg-slate-50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-xl p-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-400 focus:outline-none focus:border-brand-light dark:focus:border-brand-light focus:ring-2 focus:ring-brand-light/50 transition-all"
                                         placeholder="John Doe"
                                     />
-                                </motion.div>
-                                <motion.div
-                                    whileHover={{
-                                        scale: 1.02,
-                                    }}
-                                    transition={{
-                                        duration: 0.2,
-                                    }}
-                                >
+                                </div>
+                                <div className="group transition-transform duration-200 hover:scale-[1.02]">
                                     <label
                                         htmlFor="email"
                                         className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2"
@@ -100,16 +59,9 @@ const ContactSection = () => {
                                         className="w-full bg-slate-50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-xl p-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-400 focus:outline-none focus:border-brand-light dark:focus:border-brand-light focus:ring-2 focus:ring-brand-light/50 transition-all"
                                         placeholder="john@example.com"
                                     />
-                                </motion.div>
+                                </div>
                             </div>
-                            <motion.div
-                                whileHover={{
-                                    scale: 1.02,
-                                }}
-                                transition={{
-                                    duration: 0.2,
-                                }}
-                            >
+                            <div className="group transition-transform duration-200 hover:scale-[1.02]">
                                 <label
                                     htmlFor="company"
                                     className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2"
@@ -122,15 +74,8 @@ const ContactSection = () => {
                                     className="w-full bg-slate-50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-xl p-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-400 focus:outline-none focus:border-brand-light dark:focus:border-brand-light focus:ring-2 focus:ring-brand-light/50 transition-all"
                                     placeholder="Your Company"
                                 />
-                            </motion.div>
-                            <motion.div
-                                whileHover={{
-                                    scale: 1.02,
-                                }}
-                                transition={{
-                                    duration: 0.2,
-                                }}
-                            >
+                            </div>
+                            <div className="group transition-transform duration-200 hover:scale-[1.02]">
                                 <label
                                     htmlFor="message"
                                     className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2"
@@ -143,40 +88,22 @@ const ContactSection = () => {
                                     className="w-full bg-slate-50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-xl p-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-400 focus:outline-none focus:border-brand-light dark:focus:border-brand-light focus:ring-2 focus:ring-brand-light/50 transition-all resize-none"
                                     placeholder="Tell us about your project or requirements..."
                                 ></textarea>
-                            </motion.div>
+                            </div>
                             <div className="text-center">
-                                <motion.button
+                                <button
                                     type="submit"
-                                    className="bg-brand-light hover:bg-brand-light/90 text-white px-10 py-4 font-medium inline-flex items-center shadow-2xl rounded-xl transition-all cursor-pointer"
-                                    whileHover={{
-                                        scale: 1.05,
-                                        y: -2,
-                                    }}
-                                    whileTap={{
-                                        scale: 0.95,
-                                    }}
+                                    className="bg-brand-light hover:bg-brand-light/90 text-white px-10 py-4 font-medium inline-flex items-center shadow-2xl rounded-xl transition-all cursor-pointer hover:scale-105 hover:-translate-y-0.5 active:scale-95"
                                 >
                                     <Send className="mr-2" size={18} />
                                     Send Message
-                                </motion.button>
+                                </button>
                             </div>
                         </form>
-                    </motion.div>
-                    <motion.div
+                    </ScrollReveal>
+
+                    <ScrollReveal
+                        delay={0.4}
                         className="mt-12 text-center"
-                        initial={{
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                        }}
-                        transition={{
-                            duration: 0.6,
-                            delay: 0.4,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
                     >
                         <p className="text-slate-600 dark:text-gray-300">
                             Prefer to email us directly? Reach out at{' '}
@@ -187,7 +114,7 @@ const ContactSection = () => {
                                 connect@sshsofttech.com
                             </a>
                         </p>
-                    </motion.div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>
