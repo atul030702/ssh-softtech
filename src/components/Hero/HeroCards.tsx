@@ -1,12 +1,12 @@
 import React from 'react';
-import { motion, Variants } from 'motion/react';
+import * as motion from "motion/react-client";
 import { Database, Cloud, Activity, LayoutTemplate, Server } from 'lucide-react';
 
 import { colorClasses } from '../../utils/constants';
 
 const HeroCards: React.FC = () => {
     // Container variants for staggered children animations
-    const containerVariants: Variants = {
+    const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -18,7 +18,7 @@ const HeroCards: React.FC = () => {
     };
 
     // Individual card animation variant
-    const cardVariants: Variants = {
+    const cardVariants = {
         hidden: { opacity: 0, y: 30, scale: 0.95 },
         visible: {
             opacity: 1,
@@ -208,7 +208,7 @@ interface FeatureCardProps {
     subtitle: string;
     meta?: string;
     children?: React.ReactNode;
-    variants: Variants;
+    variants: any;
     color: string;
     delay: number;
 }

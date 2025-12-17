@@ -1,7 +1,4 @@
-"use client";
-
-import React from 'react';
-import { motion } from 'motion/react';
+import * as motion from "motion/react-client";
 import { ArrowRight, Bot } from 'lucide-react';
 
 const CTA: React.FC = () => {

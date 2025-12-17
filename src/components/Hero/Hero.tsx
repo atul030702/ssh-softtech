@@ -1,8 +1,6 @@
-"use client";
-
-import React from 'react';
-import { motion } from 'motion/react';
+import * as motion from "motion/react-client";
 import { ArrowRight, Cpu, Bot } from 'lucide-react';
+
 import HeroCards from './HeroCards';
 import NeuralBackground from '../NeuralBackground';
 

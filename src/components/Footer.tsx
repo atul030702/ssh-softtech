@@ -1,7 +1,5 @@
-"use client"
-
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import * as motion from "motion/react-client";
 import {
     Mail,
     Phone,
