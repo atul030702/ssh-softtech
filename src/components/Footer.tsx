@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import * as motion from "motion/react-client";
+import ScrollReveal from './ui/ScrollReveal';
 import {
     Mail,
     Phone,
@@ -18,20 +18,7 @@ const Footer = () => {
             <div className="container max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="md:col-span-1">
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                            }}
-                            transition={{
-                                duration: 0.5,
-                            }}
-                            viewport={{
-                                once: true,
-                            }}
-                        >
+                        <ScrollReveal>
                             <Link href="/" className="flex items-center mb-4 text-2xl font-bold text-slate-900 dark:text-white">
                                 <span className="text-2xl font-bold text-brand-light dark:text-brand-dark">SSH</span>
                                 Softtech
@@ -43,38 +30,20 @@ const Footer = () => {
                             <div className="flex space-x-4">
                                 {[Twitter, Facebook, Instagram, Linkedin].map(
                                     (Icon, index) => (
-                                        <motion.a
+                                        <a
                                             key={index}
                                             href="#"
-                                            className="text-slate-500 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-colors p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10"
-                                            whileHover={{
-                                                scale: 1.1,
-                                                y: -2,
-                                            }}
-                                            whileTap={{
-                                                scale: 0.95,
-                                            }}
+                                            className="text-slate-500 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transform hover:scale-110 hover:-translate-y-0.5 active:scale-95"
                                         >
                                             <Icon size={20} />
-                                        </motion.a>
+                                        </a>
                                     ),
                                 )}
                             </div>
-                        </motion.div>
+                        </ScrollReveal>
                     </div>
                     <div className="md:col-span-1">
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                            }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.1,
-                            }}
-                        >
+                        <ScrollReveal delay={0.1}>
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Services</h3>
                             <ul className="space-y-3">
                                 {[
@@ -94,21 +63,10 @@ const Footer = () => {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </ScrollReveal>
                     </div>
                     <div className="md:col-span-1">
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                            }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.2,
-                            }}
-                        >
+                        <ScrollReveal delay={0.2}>
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Company</h3>
                             <ul className="space-y-3">
                                 {footerItems.map((item, index) => (
@@ -122,21 +80,10 @@ const Footer = () => {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </ScrollReveal>
                     </div>
                     <div className="md:col-span-1">
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                            }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.3,
-                            }}
-                        >
+                        <ScrollReveal delay={0.3}>
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Contact</h3>
                             <ul className="space-y-3">
                                 <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
@@ -152,26 +99,17 @@ const Footer = () => {
                                     connect@sshsofttech.com
                                 </li>
                             </ul>
-                        </motion.div>
+                        </ScrollReveal>
                     </div>
                 </div>
-                <motion.div
+                <ScrollReveal
                     className="border-t border-slate-200 dark:border-white/10 mt-12 pt-8 text-sm text-center text-slate-500 dark:text-gray-400"
-                    initial={{
-                        opacity: 0,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.4,
-                    }}
+                    delay={0.4}
                 >
                     <p>
                         © {new Date().getFullYear()} SSH Softtech. All rights reserved.
                     </p>
-                </motion.div>
+                </ScrollReveal>
             </div>
         </footer>
     )
