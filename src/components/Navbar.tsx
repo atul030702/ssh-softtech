@@ -1,145 +1,125 @@
 "use client"
 
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import ModeToggle from "./ModeToggle";
 import { navItems } from "../utils/constants";
 
-interface NavItem {
-    label: string;
-    href: string;
-}
-
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const pathname = usePathname();
+    const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [currentHash, setCurrentHash] = useState<string>(() => {
-        if (typeof window !== 'undefined') {
-            return window.location.hash;
-        }
-        return '';
-    });
+    const [currentHash, setCurrentHash] = useState('');
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
+        setCurrentHash('');
+    }, [pathname]);
 
-        const handleHashChange = () => {
-            setCurrentHash(window.location.hash);
-        };
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleHashChange = () => setCurrentHash(window.location.hash);
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('hashchange', handleHashChange);
+        handleScroll();
+        handleHashChange();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('hashchange', handleHashChange);
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
     }, []);
 
-    const activeTab = useMemo(() => {
-        if (currentHash) {
-            const matchingItem = navItems.find(item => item.href === currentHash);
-            return matchingItem?.label || '';
-        }
-        const matchingItem = navItems.find(item => item.href === pathname);
+    const isHomePage = pathname === '/';
+    const activeLabel = (currentHash
+        ? navItems.find(item => item.href === currentHash)
+        : navItems.find(item => item.href === pathname))?.label;
 
-        return matchingItem?.label || '';
-    }, [pathname, currentHash]);
+    const handleNavigation = (e: React.MouseEvent, item: { href: string; label: string }) => {
+        e.preventDefault();
+        const isHash = item.href.startsWith('#');
 
-    const isHashLink = (href: string): boolean => href.startsWith('#');
-    const homeRoute = '/';
-
-    const handleTabClick = (label: string, href: string): void => {
         setMobileMenuOpen(false);
 
-        // Smooth scroll for hash links
-        if (isHashLink(href)) {
-            const element = document.querySelector(href);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+        // Clear any existing timeout
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+        timeoutRef.current = setTimeout(() => {
+            if (isHash && isHomePage) {
+                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                window.history.pushState(null, '', item.href);
+                setCurrentHash(item.href);
+            } else {
+                router.push(isHash ? `/${item.href}` : item.href);
             }
-        }
+            timeoutRef.current = null;
+        }, 100);
     };
 
-    const isActive = (item: NavItem): boolean => {
-        if (isHashLink(item.href)) {
-            return activeTab === item.label;
-        }
-        return pathname === item.href || activeTab === item.label;
+    const renderNavItem = (item: { href: string; label: string }, isMobile = false) => {
+        const isHash = item.href.startsWith('#');
+        const isActive = activeLabel === item.label;
+
+        const baseClassName = "text-sm font-medium transition-all cursor-pointer";
+        const mobileClassName = `block w-full px-4 py-3 rounded-xl ${isActive
+            ? 'bg-brand-50 dark:bg-white/10 text-brand-600 dark:text-white font-semibold'
+            : 'text-slate-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-brand-600 dark:hover:text-white'
+            }`;
+        const desktopClassName = `border-b-2 ${isActive
+            ? 'text-brand-600 dark:text-white border-brand-600 dark:border-brand-600'
+            : 'text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white border-transparent'
+            }`;
+
+        return (
+            <Link
+                key={item.label}
+                href={isHash && !isHomePage ? `/${item.href}` : item.href}
+                className={`${baseClassName} ${isMobile ? mobileClassName : desktopClassName}`}
+                onClick={(e) => handleNavigation(e, item)}
+                prefetch={true}
+            >
+                {item.label}
+            </Link>
+        );
     };
 
     return (
         <>
-            {/* Top Blur Strip for Scrolled State */}
-            <div
-                className={`fixed top-0 left-0 right-0 h-4 z-40 backdrop-blur-md transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            />
+            <div className={`fixed top-0 left-0 right-0 h-4 z-40 backdrop-blur-md transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} />
+
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'max-w-7xl py-4 mx-auto top-4 rounded-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-sm border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none'
+                    ? 'max-w-7xl py-4 mx-auto top-2 sm:top-4 rounded-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-sm border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none'
                     : 'max-w-full bg-transparent py-4 sm:py-6'
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center">
-                        {/* Logo */}
                         <Link href="/"
                             className="flex items-center gap-2 font-bold text-lg sm:text-xl md:text-2xl tracking-tight"
+                            onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="text-brand-light dark:text-brand-dark font-extrabold">SSH</span>
                             <span className="text-slate-900 dark:text-white">SOFTTECH</span>
                         </Link>
 
-                        {/* Desktop Links */}
                         <div className="hidden md:flex items-center gap-8">
-                            {navItems.map((item) => {
-                                const isHashItem = isHashLink(item.href);
-                                const isHomePage = pathname === homeRoute;
-                                const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
-                                const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
-
-                                // Determine the correct href
-                                // If it's a hash link and we are NOT on home, prepend "/" to make it navigate home first
-                                // If it's a page link, use as is
-                                const href = isHashItem && !isHomePage ? `/${item.href}` : item.href;
-
-                                return isHomePage && isHashItem ? (
-                                    <a
-                                        key={item.label}
-                                        href={href}
-                                        className={baseClass}
-                                        onClick={() => handleTabClick(item.label, href)}
-                                    >
-                                        {item.label}
-                                    </a>
-                                ) : (
-                                    <Link
-                                        key={item.label}
-                                        href={href}
-                                        className={baseClass}
-                                        onClick={() => handleTabClick(item.label, href)}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                );
-                            })}
-
+                            {navItems.map((item) => renderNavItem(item, false))}
                             <ModeToggle />
                         </div>
 
-                        {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center gap-4">
                             <ModeToggle />
-
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="text-slate-900 dark:text-white hover:text-brand-500 transition-colors"
+                                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                             >
                                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
@@ -147,37 +127,9 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden absolute top-full left-0 w-full bg-slate-100 dark:bg-[#050B14] border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-4 shadow-2xl">
-                        {navItems.map((item) => {
-                            const isHashItem = isHashLink(item.href);
-                            const isHomePage = pathname === homeRoute;
-                            const activeClass = isActive(item) ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300';
-                            const baseClass = `text-sm font-medium text-slate-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-white transition-colors relative group ${activeClass}`;
-
-                            const href = isHashItem && !isHomePage ? `/${item.href}` : item.href;
-
-                            return isHomePage && isHashItem ? (
-                                <a
-                                    key={item.label}
-                                    href={href}
-                                    className={baseClass}
-                                    onClick={() => handleTabClick(item.label, href)}
-                                >
-                                    {item.label}
-                                </a>
-                            ) : (
-                                <Link
-                                    key={item.label}
-                                    href={href}
-                                    className={baseClass}
-                                    onClick={() => handleTabClick(item.label, href)}
-                                >
-                                    {item.label}
-                                </Link>
-                            );
-                        })}
+                    <div className="md:hidden absolute top-full left-0 w-full bg-slate-100 dark:bg-[#050B14] border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-2 shadow-2xl">
+                        {navItems.map((item) => renderNavItem(item, true))}
                     </div>
                 )}
             </nav>
