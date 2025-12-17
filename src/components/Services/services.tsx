@@ -1,5 +1,5 @@
-import * as motion from "motion/react-client";
 import { ArrowUpRight } from "lucide-react";
+import ScrollReveal from '../ui/ScrollReveal';
 
 import { servicesData } from "./constants";
 
@@ -13,25 +13,14 @@ const Services: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6"
-                    >
+                <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                         Our Core <span className="text-brand-600 dark:text-brand-400">Software Solutions</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed"
-                    >
+                    </h2>
+                    <p className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
                         Engineering ideas into digital solutions. We deliver full-stack, AI-powered systems designed for scale and performance.
-                    </motion.p>
-                </div>
+                    </p>
+                </ScrollReveal>
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -46,11 +35,8 @@ const Services: React.FC = () => {
 
 const ServiceCard: React.FC<{ service: typeof servicesData[0]; index: number }> = ({ service, index }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+        <ScrollReveal
+            delay={index * 0.1}
             className="group relative p-8 rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-brand-500/30 dark:hover:border-brand-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-black/50 hover:-translate-y-2 overflow-hidden"
         >
             {/* Gradient Overlay on Hover */}
@@ -80,7 +66,7 @@ const ServiceCard: React.FC<{ service: typeof servicesData[0]; index: number }> 
                     <ArrowUpRight size={16} />
                 </div>
             </div>
-        </motion.div>
+        </ScrollReveal>
     );
 };
 

@@ -41,6 +41,20 @@
     }
   }
 
+  @keyframes infinite-scroll-y {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-33.33%);
+    }
+  }
+
+  .animate-infinite-scroll-y {
+    animation: infinite-scroll-y 20s linear infinite;
+  }
+
   .bg-grid-pattern {
     background-size: 50px 50px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),

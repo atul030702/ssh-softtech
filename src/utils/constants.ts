@@ -42,6 +42,10 @@ export const footerItems = [
         href: '/contact',
     },
     {
+        label: 'Courses',
+        href: '/courses',
+    },
+    {
         label: 'Privacy Policy',
         href: '/privacy-policy',
     },

@@ -1,6 +1,6 @@
 import React from "react";
-import * as motion from "motion/react-client";
 import { BookOpen, HeartPulse, Building2, Truck, Plane, Droplet, ShoppingBag } from 'lucide-react';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const industriesData = [
     { icon: <BookOpen />, name: "Education", color: "text-pink-500 bg-pink-500/10" },
@@ -26,25 +26,14 @@ const Industries: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
 
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <motion.h2
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4"
-                    >
+                <ScrollReveal className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
                         Industries <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-500 to-purple-500">We Empower</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto"
-                    >
+                    </h2>
+                    <p className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
                         We usher innovation on-demand, catalyzing growth across industries — from healing hands to fueling the world engine.
-                    </motion.p>
-                </div>
+                    </p>
+                </ScrollReveal>
 
                 {/* Vertical Scroll Container */}
                 <div className="relative w-full max-w-2xl h-[400px] overflow-hidden">
@@ -52,19 +41,8 @@ const Industries: React.FC = () => {
                     <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-slate-50 to-transparent dark:from-[#050B14] dark:to-transparent z-20 pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-slate-50 to-transparent dark:from-[#050B14] dark:to-transparent z-20 pointer-events-none" />
 
-                    {/* Scrolling Content */}
-                    <motion.div
-                        animate={{ y: [0, -100 * industriesData.length] }} // Adjust depending on item height
-                        transition={{
-                            y: {
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 20, // Adjust speed
-                                ease: "linear",
-                            },
-                        }}
-                        className="flex flex-col items-center gap-0"
-                    >
+                    {/* Scrolling Content - CSS Animation */}
+                    <div className="flex flex-col items-center gap-0 animate-infinite-scroll-y">
                         {duplicatedIndustries.map((industry, index) => (
                             <div
                                 key={index}
@@ -80,7 +58,7 @@ const Industries: React.FC = () => {
                                 </div>
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
 
             </div>
