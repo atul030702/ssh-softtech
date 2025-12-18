@@ -20,7 +20,7 @@ const CTA: React.FC = () => {
                     <ScrollReveal delay={0.1}>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 mx-auto tracking-tight text-black dark:text-white max-w-3xl">
                             Ready to Engineer Your <br />
-                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 animate-gradient-x">
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
                                 Autonomous Future?
                             </span>
                         </h2>

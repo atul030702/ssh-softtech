@@ -14,8 +14,11 @@ const Services: React.FC = () => {
 
                 {/* Section Header */}
                 <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-                        Our Core <span className="text-brand-600 dark:text-brand-400">Software Solutions</span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-6">
+                        Our Core &nbsp;
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
+                            Software Solutions
+                        </span>
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
                         Engineering ideas into digital solutions. We deliver full-stack, AI-powered systems designed for scale and performance.

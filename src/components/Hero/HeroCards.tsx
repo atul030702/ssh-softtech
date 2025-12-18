@@ -23,7 +23,7 @@ const HeroCards: React.FC = () => {
                         delay={0.4}
                     >
                         {/* Micro-interaction: UI skeleton loading */}
-                        <div className="mt-3 space-y-2">
+                        <div className="mt-1 space-y-2">
                             <div className="flex gap-2">
                                 <div className="w-8 h-8 rounded-lg bg-slate-200 dark:bg-white/10" />
                                 <div className="flex-1 space-y-1 py-1">
@@ -41,7 +41,7 @@ const HeroCards: React.FC = () => {
                         color="purple"
                         delay={0.5}
                     >
-                        <div className="flex -space-x-2 mt-3 pl-2">
+                        <div className="flex -space-x-2 mt-2 pl-2">
                             {[1, 2, 3].map((i) => (
                                 <div key={i} className="w-7 h-7 rounded-full bg-slate-100 dark:bg-white/10 border border-white dark:border-white/10 flex items-center justify-center text-[9px] font-bold text-slate-600 dark:text-white shadow-sm">
                                     U{i}
@@ -168,7 +168,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle, meta, 
                 // Micro-interaction: Focus effect
                 // When the group (grid) is hovered, non-hovered items fade out slightly
                 className={`
-                relative p-5 rounded-2xl 
+                relative p-5 rounded-2xl h-[180px] flex flex-col justify-between
                 bg-slate-50/60 dark:bg-white/5 
                 border border-slate-200/50 dark:border-white/5 
                 backdrop-blur-sm 
@@ -181,25 +181,29 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle, meta, 
                 cursor-default
             `}
             >
-                <div className="flex justify-between items-start mb-3">
-                    <div className={`
+                <div className="w-full">
+                    <div className="flex justify-between items-start mb-3">
+                        <div className={`
                         p-2.5 rounded-xl transition-colors duration-300
                         bg-white/50 dark:bg-white/5 
                         group-hover:bg-${hoverBgClasses}-50 dark:group-hover:bg-white/10
                     `}>
-                        {icon}
+                            {icon}
+                        </div>
+                        {meta && (
+                            <span className="text-[10px] font-semibold text-slate-400 dark:text-gray-500 bg-slate-100/50 dark:bg-white/5 px-2 py-1 rounded-md">
+                                {meta}
+                            </span>
+                        )}
                     </div>
-                    {meta && (
-                        <span className="text-[10px] font-semibold text-slate-400 dark:text-gray-500 bg-slate-100/50 dark:bg-white/5 px-2 py-1 rounded-md">
-                            {meta}
-                        </span>
-                    )}
+
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-gray-100 mb-0.5 leading-tight">{title}</h3>
+                    <p className="text-xs text-slate-500 dark:text-gray-400 mb-2 font-medium">{subtitle}</p>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-800 dark:text-gray-100 mb-0.5 leading-tight">{title}</h3>
-                <p className="text-xs text-slate-500 dark:text-gray-400 mb-2 font-medium">{subtitle}</p>
-
-                {children}
+                <div className="w-full">
+                    {children}
+                </div>
             </div>
         </ScrollReveal>
     );

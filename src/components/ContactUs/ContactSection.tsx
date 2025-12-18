@@ -16,7 +16,10 @@ const ContactSection = () => {
                 <div className="max-w-4xl mx-auto">
                     <ScrollReveal className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-                            Ready to Transform Your Digital Presence?
+                            Ready to Transform Your{' '}
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
+                                Digital Presence?
+                            </span>
                         </h2>
                         <p className="text-slate-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Let's discuss how SSH Softtech can help you achieve your

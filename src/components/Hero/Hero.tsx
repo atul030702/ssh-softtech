@@ -15,9 +15,9 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-grid-pattern opacity-20" />
                 <NeuralBackground />
 
-                {/* Glow Effects */}
+                {/* Glow Effects 
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-light/10 dark:bg-brand-dark/15 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-900/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-900/10 rounded-full blur-[100px]" />*/}
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
                     >
                         <h1 className="inline">
                             From an Idea to Impact: <br />
-                            <span className="text-transparent bg-clip-text bg-linear-to-b from-brand-dark to-brand-light dark:from-white dark:to-white/40">
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-600 dark:via-brand-dark dark:to-blue-600 animate-gradient-x">
                                 Engineering Intelligent Software
                             </span>
                         </h1>

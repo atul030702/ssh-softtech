@@ -13,7 +13,10 @@ const CoursesSection = () => {
             <div className="container mx-auto px-6 max-w-7xl">
                 <ScrollReveal className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">
-                        Professional Courses
+                        Professional{' '}
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
+                            Courses
+                        </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         Elevate your skills with our industry-leading courses taught by

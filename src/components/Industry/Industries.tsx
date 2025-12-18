@@ -27,8 +27,11 @@ const Industries: React.FC = () => {
 
                 {/* Header */}
                 <ScrollReveal className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-                        Industries <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-500 to-purple-500">We Empower</span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-800 dark:text-white mb-4">
+                        Industries &nbsp;
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
+                            We Empower
+                        </span>
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
                         We usher innovation on-demand, catalyzing growth across industries — from healing hands to fueling the world engine.
