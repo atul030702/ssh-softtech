@@ -72,7 +72,7 @@ const Footer = () => {
                                 {footerItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
-                                            href={item.href}
+                                            href={item.href} target="_blank" rel='noopener noreferrer'
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all hover:translate-x-1 inline-block duration-150 ease-out"
                                         >
                                             {item.label}

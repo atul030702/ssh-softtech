@@ -33,6 +33,8 @@ const CoursesSection = () => {
                                     src={course.image}
                                     alt={course.title}
                                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                                    decoding="async"
+                                    loading="lazy"
                                 />
                                 <div
                                     className={`absolute inset-0 bg-linear-to-br ${course.color} opacity-30 group-hover:opacity-40 transition-opacity`}

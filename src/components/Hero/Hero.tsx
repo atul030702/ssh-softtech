@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowRight, Cpu, Bot } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
 
@@ -56,10 +57,12 @@ const Hero: React.FC = () => {
                             <Cpu size={18} className="text-white" />
                             Build Your AI Solution
                         </button>
-                        <button className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer">
+                        <Link href="https://cal.com/atul-cal" target="_blank" rel='noopener noreferrer'
+                            className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer"
+                        >
                             Book a Free Demo
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </ScrollReveal>
                 </div>
 

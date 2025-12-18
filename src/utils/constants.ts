@@ -31,7 +31,7 @@ export const colorClasses: Record<string, string> = {
 export const footerItems = [
     {
         label: 'Book a Demo',
-        href: '#',
+        href: 'https://cal.com/atul-cal',
     },
     {
         label: 'About Us',

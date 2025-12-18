@@ -1,7 +1,7 @@
 import React from 'react';
 import { Database, Cloud, Activity, LayoutTemplate, Server } from 'lucide-react';
-import ScrollReveal from '../ui/ScrollReveal';
 
+import ScrollReveal from '../ui/ScrollReveal';
 import { colorClasses } from '../../utils/constants';
 
 const HeroCards: React.FC = () => {
