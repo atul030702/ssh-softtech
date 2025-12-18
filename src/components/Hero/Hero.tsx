@@ -1,5 +1,5 @@
-import * as motion from "motion/react-client";
 import { ArrowRight, Cpu, Bot } from 'lucide-react';
+import ScrollReveal from '../ui/ScrollReveal';
 
 import HeroCards from './HeroCards';
 import NeuralBackground from '../NeuralBackground';
@@ -25,36 +25,31 @@ const Hero: React.FC = () => {
                 <div className="text-center max-w-5xl mx-auto mb-16">
 
                     {/* Tagline Pill */}
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                    <ScrollReveal
                         className="inline-flex items-center gap-2 px-2 sm:px-4 py-1.5 mb-8 sm:mb-4 rounded-full bg-slate-50/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm text-sm font-medium text-slate-600 dark:text-gray-300 hover:border-brand-light/90 transition-colors cursor-default"
                     >
                         <Bot size={16} className="text-brand-light dark:text-brand-dark" />
                         <span className="text-slate-500 dark:text-gray-400">
                             Chatbots • Generative AI • RAG Systems
                         </span>
-                    </motion.div>
+                    </ScrollReveal>
 
                     {/* Headline */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
+                    <ScrollReveal
+                        delay={0.1}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
                     >
-                        From an Idea to Impact: <br />
-                        <span className="text-transparent bg-clip-text bg-linear-to-b from-brand-dark to-brand-light dark:from-white dark:to-white/40">
-                            Engineering Intelligent Software
-                        </span>
-                    </motion.h1>
+                        <h1 className="inline">
+                            From an Idea to Impact: <br />
+                            <span className="text-transparent bg-clip-text bg-linear-to-b from-brand-dark to-brand-light dark:from-white dark:to-white/40">
+                                Engineering Intelligent Software
+                            </span>
+                        </h1>
+                    </ScrollReveal>
 
                     {/* Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                    <ScrollReveal
+                        delay={0.3}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
                         <button className="w-full inline-flex items-center justify-center sm:w-auto px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
@@ -65,7 +60,7 @@ const Hero: React.FC = () => {
                             Book a Free Demo
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </button>
-                    </motion.div>
+                    </ScrollReveal>
                 </div>
 
                 {/* Bottom Visual Content - The 5 Cards Layout */}
