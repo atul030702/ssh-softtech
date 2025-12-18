@@ -1,20 +1,18 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import ModeToggle from "./ModeToggle";
 import { navItems } from "../utils/constants";
 
 const Navbar = () => {
     const pathname = usePathname();
-    const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [currentHash, setCurrentHash] = useState('');
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         setCurrentHash('');
@@ -32,7 +30,6 @@ const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('hashchange', handleHashChange);
-            if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
     }, []);
 
@@ -42,24 +39,16 @@ const Navbar = () => {
         : navItems.find(item => item.href === pathname))?.label;
 
     const handleNavigation = (e: React.MouseEvent, item: { href: string; label: string }) => {
-        e.preventDefault();
         const isHash = item.href.startsWith('#');
 
         setMobileMenuOpen(false);
 
-        // Clear any existing timeout
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-
-        timeoutRef.current = setTimeout(() => {
-            if (isHash && isHomePage) {
-                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                window.history.pushState(null, '', item.href);
-                setCurrentHash(item.href);
-            } else {
-                router.push(isHash ? `/${item.href}` : item.href);
-            }
-            timeoutRef.current = null;
-        }, 100);
+        if (isHash && isHomePage) {
+            e.preventDefault();
+            document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+            window.history.pushState(null, '', item.href);
+            setCurrentHash(item.href);
+        }
     };
 
     const renderNavItem = (item: { href: string; label: string }, isMobile = false) => {
@@ -95,8 +84,8 @@ const Navbar = () => {
 
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'max-w-7xl py-4 mx-auto top-2 sm:top-4 rounded-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-sm border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none'
-                    : 'max-w-full bg-transparent py-4 sm:py-6'
+                    ? 'max-w-7xl py-4 sm:mx-auto top-2 sm:top-4 left-2 right-2 rounded-xl bg-white/80 dark:bg-dark-950/80 backdrop-blur-sm border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-none'
+                    : 'max-w-full bg-transparent py-4 sm:py-6 top-0 left-0 right-0'
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

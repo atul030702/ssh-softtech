@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { RiSunLine, RiMoonLine } from "@remixicon/react";
+import { SunIcon, MoonIcon } from "lucide-react";
 
 function ModeToggle() {
     const { setTheme, resolvedTheme } = useTheme();
@@ -30,9 +30,9 @@ function ModeToggle() {
             type="button"
         >
             {resolvedTheme === "dark" ? (
-                <RiSunLine size={18} className="text-yellow-300 transition-all dark:rotate-0 rotate-90" />
+                <SunIcon size={18} className="text-yellow-300 transition-all dark:rotate-0 rotate-90" />
             ) : (
-                <RiMoonLine size={18} className="text-slate-700 transition-all rotate-0 dark:-rotate-90" />
+                <MoonIcon size={18} className="text-slate-700 transition-all rotate-0 dark:-rotate-90" />
             )}
         </button>
     );

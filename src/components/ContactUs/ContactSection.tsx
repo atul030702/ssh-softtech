@@ -1,8 +1,6 @@
-import dynamic from 'next/dynamic';
 import { Send } from 'lucide-react';
 
 import ScrollReveal from '../ui/ScrollReveal';
-//const ContactDotsBackground = dynamic(() => import('./ContactDotsBackground'));
 import ContactDotsBackground from './ContactDotsBackground';
 
 const ContactSection = () => {
