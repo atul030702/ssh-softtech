@@ -12,10 +12,13 @@ const CoursesSection = () => {
         <section id="courses" className="py-24 bg-white dark:bg-dark-950">
             <div className="container mx-auto px-6 max-w-7xl">
                 <ScrollReveal className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 tracking-widest mb-4">
+                        <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">Professional Courses</span>
+                    </div>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">
-                        Professional{' '}
+                        Upskill{' '}
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-400 dark:via-indigo-500 dark:to-brand-light animate-gradient-x">
-                            Courses
+                            with Us
                         </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
