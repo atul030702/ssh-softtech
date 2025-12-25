@@ -4,6 +4,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 import HeroCards from './HeroCards';
 import NeuralBackground from '../NeuralBackground';
+import ContactForm from '../ui/ContactForm';
 
 const Hero: React.FC = () => {
     return (
@@ -14,10 +15,6 @@ const Hero: React.FC = () => {
                 {/* Animated Grid - Reverted to static as requested */}
                 <div className="absolute inset-0 bg-grid-pattern opacity-20" />
                 <NeuralBackground />
-
-                {/* Glow Effects 
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-light/10 dark:bg-brand-dark/15 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-900/10 rounded-full blur-[100px]" />*/}
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
@@ -48,12 +45,15 @@ const Hero: React.FC = () => {
                         </h1>
                     </ScrollReveal>
 
-                    {/* Buttons */}
+                    {/* Action Buttons */}
                     <ScrollReveal
                         delay={0.3}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <button className="w-full inline-flex items-center justify-center sm:w-auto px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
+                        <button popoverTarget="contact-form-popover"
+                            popoverTargetAction="show"
+                            className="w-full inline-flex items-center justify-center sm:w-auto px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                        >
                             <Cpu size={18} className="text-white" />
                             Build Your AI Solution
                         </button>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
 
                 {/* Bottom Visual Content - The 5 Cards Layout */}
                 <HeroCards />
-
+                <ContactForm />
             </div>
         </div>
     );

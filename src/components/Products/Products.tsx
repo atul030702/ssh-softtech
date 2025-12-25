@@ -7,6 +7,7 @@ import { Bot, ArrowRight, CheckCircle2, Check } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
 import { mainProducts, stats, integrations, featureData, marketingData } from './constants';
 import VideoModal from '../ui/VideoModal';
+import ContactForm from '../ui/ContactForm';
 
 const Products = () => {
     const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null);
@@ -22,46 +23,69 @@ const Products = () => {
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="text-center mb-12 mt-4">
-                        <ScrollReveal className="max-w-5xl mx-auto mb-12">
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 animate-fade-in-up">
-                                AI-Powered{' '}
+                    <div className="text-center mb-8 mt-4">
+                        <ScrollReveal
+                            className="max-w-4xl mx-auto mb-16"
+                            delay={0.1}
+                        >
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-black tracking-tight mb-6 animate-fade-in-up">
+                                Connect, Process, & Scale operations using our{' '}
                                 <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-600 dark:via-brand-dark dark:to-blue-600 animate-gradient-x">
-                                    Product Suite
+                                    AI Product Suite
                                 </span>
                             </h1>
-                            <p className="text-xl text-slate-600 dark:text-gray-400 leading-relaxed">
+                            <p className="text-xl text-slate-600 dark:text-gray-400 leading-tight">
                                 Empower your organization with business-ready software products designed for modern enterprises.
                                 Our suite of AI agents converts static documents into interactive knowledge systems, automates customer engagement,
                                 and drives precision in data processing to help you scale faster.
                             </p>
                         </ScrollReveal>
 
-                        <ScrollReveal className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-20">
-                            {marketingData.map((item, index) => (
-                                <div key={index} className="inline-flex items-center gap-2 bg-slate-200 dark:bg-slate-800 py-1 px-4 rounded-3xl">
-                                    <div className="w-4 h-4 flex items-center justify-center rounded-full bg-green-600 dark:bg-green-500">
-                                        <Check size={14} className="text-white font-bold" />
-                                    </div>
-                                    <p className="text-slate-600 dark:text-gray-400">{item}</p>
-                                </div>
-                            ))}
-                        </ScrollReveal>
-
-                        <ScrollReveal
-                            delay={0.3}
-                            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                        <ScrollReveal delay={0.2}
+                            className="flex flex-col sm:flex-row items-center sm:justify-center gap-8 w-full sm:w-auto mb-16"
                         >
-                            <button className="w-full inline-flex items-center justify-center sm:w-auto px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
-                                <Bot size={20} className="text-white" />
-                                Start Your AI Journey
+                            <button
+                                popoverTarget="contact-form-popover"
+                                popoverTargetAction="show"
+                                className="group relative w-full sm:w-auto overflow-hidden rounded-xl bg-brand-light px-8 py-4 font-bold text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all cursor-pointer hover:bg-indigo-500 hover:scale-[1.02] active:scale-[0.98]"
+                            >
+                                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                                <div className="relative flex items-center justify-center gap-2">
+                                    <Bot size={20} />
+                                    <span>Start Your AI Journey</span>
+                                </div>
                             </button>
+
                             <Link href="https://cal.com/atul-cal" target="_blank" rel='noopener noreferrer'
-                                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer"
+                                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                             >
                                 Book a Free Demo
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
+                        </ScrollReveal>
+
+                        <ScrollReveal
+                            className="flex flex-col justify-center items-center"
+                            delay={0.3}
+                        >
+                            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                                {marketingData.map((item, index) => (
+                                    <div key={index} className="inline-flex items-center gap-2 bg-slate-200 dark:bg-slate-800 py-1 px-4 rounded-3xl">
+                                        <div className="w-4 h-4 flex items-center justify-center rounded-full bg-green-600 dark:bg-green-500">
+                                            <Check size={14} className="text-white font-bold" />
+                                        </div>
+                                        <p className="text-slate-600 dark:text-gray-400">{item}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <img
+                                src="./product_hero_image.png"
+                                alt="product hero image"
+                                className="w-full sm:w-auto"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </ScrollReveal>
                     </div>
                 </div>
@@ -130,18 +154,18 @@ const Products = () => {
             </section>
 
             {/* --- INTEGRATIONS SECTION --- */}
-            <section className="py-24 bg-slate-900 dark:bg-white/5 border-y border-white/5 relative overflow-hidden">
+            <section className="py-24 bg-slate-100 dark:bg-white/5 border-y border-white/5 relative overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/10 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-                    <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Integrate with Your Ecosystem</h2>
-                    <p className="text-slate-400 mb-16 max-w-2xl mx-auto font-medium">Connect SSH Softtech products seamlessly with the tools you already use to drive productivity across your entire organization.</p>
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">Integrate with Your Ecosystem</h2>
+                    <p className="text-slate-600 dark:text-slate-400 mb-16 max-w-2xl mx-auto font-medium">Connect SSH Softtech products seamlessly with the tools you already use to drive productivity across your entire organization.</p>
 
                     <ScrollReveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
                         {integrations.map((app, i) => (
-                            <div key={i} className="group p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-default animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
+                            <div key={i} className="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 backdrop-blur-md hover:border-slate-300 dark:hover:border-white/20 hover:shadow-lg dark:hover:bg-white/10 transition-all duration-300 cursor-default animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
                                 <div className="mb-4 flex justify-center group-hover:scale-110 transition-transform">{app.icon}</div>
-                                <div className="text-sm font-bold text-white tracking-wider">{app.name}</div>
+                                <div className="text-sm font-bold text-slate-900 dark:text-white tracking-wider">{app.name}</div>
                             </div>
                         ))}
                     </ScrollReveal>
@@ -191,19 +215,23 @@ const Products = () => {
                     <div className="relative z-10">
                         <h2 className="text-2xl md:text-4xl font-bold mb-8 leading-tight animate-fade-in-up">Ready to revolutionize your <br /> business with AI?</h2>
                         <p className="text-lg text-brand-100 mb-12 max-w-2xl mx-auto font-medium animate-fade-in-up" style={{ animationDelay: '0.1s' }}>Join the 20+ companies that have already scaled their operations using our custom AI agents.</p>
-                        <button className="px-8 py-4 bg-white text-brand-600 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition-transform cursor-pointer">
+                        <button
+                            popoverTarget="contact-form-popover"
+                            popoverTargetAction="show"
+                            className="px-8 py-4 bg-white text-brand-600 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition-transform cursor-pointer"
+                        >
                             Get Started Now
                         </button>
                     </div>
                 </ScrollReveal>
             </section>
 
-            {/* ---Youtube VIDEO MODAL --- */}
             <VideoModal
                 isOpen={!!selectedVideoId}
                 onClose={() => setSelectedVideoId(null)}
                 videoId={selectedVideoId}
             />
+            <ContactForm />
         </div>
     );
 };

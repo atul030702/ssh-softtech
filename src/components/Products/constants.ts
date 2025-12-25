@@ -56,7 +56,6 @@ export const marketingData = [
     "Generate 10x more leads",
     "Solve 80% more queries",
     "Engage 70% more visitors",
-    "Earn 90% more revenue",
 ];
 
 export const stats = [

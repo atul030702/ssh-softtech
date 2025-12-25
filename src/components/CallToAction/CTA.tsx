@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Bot } from 'lucide-react';
 
 import ScrollReveal from '../ui/ScrollReveal';
+import ContactForm from '../ui/ContactForm';
 
 const CTA: React.FC = () => {
     return (
@@ -36,7 +37,11 @@ const CTA: React.FC = () => {
                     {/* Buttons */}
                     <ScrollReveal delay={0.3} className="flex flex-col sm:flex-row items-center sm:justify-center gap-8 w-full sm:w-auto">
                         {/* Primary Button */}
-                        <button className="group relative w-full sm:w-auto overflow-hidden rounded-xl bg-brand-light px-8 py-4 font-bold text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all cursor-pointer hover:bg-indigo-500 hover:scale-[1.02] active:scale-[0.98]">
+                        <button
+                            popoverTarget="contact-form-popover"
+                            popoverTargetAction="show"
+                            className="group relative w-full sm:w-auto overflow-hidden rounded-xl bg-brand-light px-8 py-4 font-bold text-white shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all cursor-pointer hover:bg-indigo-500 hover:scale-[1.02] active:scale-[0.98]"
+                        >
                             <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
                             <div className="relative flex items-center justify-center gap-2">
                                 <Bot size={20} />
@@ -54,6 +59,7 @@ const CTA: React.FC = () => {
                     </ScrollReveal>
                 </ScrollReveal>
             </div>
+            <ContactForm />
         </section>
     );
 };
