@@ -17,7 +17,8 @@ export const mainProducts = [
         ],
         icon: React.createElement(MessageSquare, { className: "text-blue-500", size: 32 }),
         color: "from-blue-600/20 to-cyan-500/20",
-        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop"
+        image: "/chatbot.png",
+        videoId: "qlMRQpaMqes?si=Ji9Zw8nzeq6csN9X"
     },
     {
         title: "AI Voice Agent",
@@ -31,7 +32,8 @@ export const mainProducts = [
         ],
         icon: React.createElement(Mic, { className: "text-purple-500", size: 32 }),
         color: "from-purple-600/20 to-pink-500/20",
-        image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&auto=format&fit=crop"
+        image: "/voice_agent.png",
+        videoId: "dPc3_8BZKIs?si=-d543HyL_5J-jw1Q"
     },
     {
         title: "Extract Agent",
@@ -45,14 +47,22 @@ export const mainProducts = [
         ],
         icon: React.createElement(FileSearch, { className: "text-emerald-500", size: 32 }),
         color: "from-emerald-600/20 to-teal-500/20",
-        image: "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=800&auto=format&fit=crop"
+        image: "/extract_agent.png",
+        videoId: "CQeM37iB2KY?si=ETY0KquVQUJYfV_t"
     }
 ];
 
+export const marketingData = [
+    "Generate 10x more leads",
+    "Solve 80% more queries",
+    "Engage 70% more visitors",
+    "Earn 90% more revenue",
+];
+
 export const stats = [
-    { value: '20+', label: 'Enterprise Clients' },
+    { value: '10+', label: 'Countries Served' },
     { value: '99.9%', label: 'Uptime Reliability' },
-    { value: '5M+', label: 'Requests Processed' },
+    { value: '1M+', label: 'Requests Processed' },
     { value: '15+', label: 'Industry Sectors' },
 ];
 
@@ -69,7 +79,7 @@ export const featureData = [
     { icon: React.createElement(Shield, { size: 24 }), title: "Zero-Leakage Privacy", desc: "Proprietary data is isolated and never used for training public models." },
     { icon: React.createElement(BarChart3, { size: 24 }), title: "Advanced Analytics", desc: "Real-time insights and usage metrics across all AI interactions." },
     { icon: React.createElement(Layers, { size: 24 }), title: "Multi-modal Support", desc: "Process text, audio, and visual documents in a single unified workflow." },
-    { icon: React.createElement(Globe, { size: 24 }), title: "Global Scale", desc: "Distributed infrastructure ensuring low latency for India and USA users." },
+    { icon: React.createElement(Globe, { size: 24 }), title: "Global Scale", desc: "Distributed infrastructure ensuring low latency for users." },
     { icon: React.createElement(Users, { size: 24 }), title: "Multi-tenant Access", desc: "Granular permission controls for enterprise teams and departments." },
     { icon: React.createElement(Headphones, { size: 24 }), title: "Concierge Support", desc: "Dedicated engineering support for custom integration challenges." },
 ];
