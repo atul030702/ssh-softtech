@@ -1,4 +1,4 @@
-import { values, stats } from './constants';
+import { values } from './constants';
 import ScrollReveal from '../ui/ScrollReveal';
 
 const AboutSection = () => {
@@ -19,26 +19,7 @@ const AboutSection = () => {
                         software solutions.
                     </p>
                 </ScrollReveal>
-                {/* Stats Section */}
-                <ScrollReveal
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16 bg-brand-light/80 dark:bg-brand-dark/80 px-6 md:px-12 py-8 rounded-3xl"
-                    delay={0.2}
-                >
-                    {stats.map((stat, index) => (
-                        <ScrollReveal
-                            key={index}
-                            className="text-center"
-                            delay={0.2 + (index * 0.1)}
-                        >
-                            <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                                {stat.value}
-                            </div>
-                            <div className="text-blue-50 dark:text-white/80 font-medium">
-                                {stat.label}
-                            </div>
-                        </ScrollReveal>
-                    ))}
-                </ScrollReveal>
+
                 {/* Values Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {values.map((value, index) => (

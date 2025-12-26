@@ -28,22 +28,3 @@ export const values = [
             'Agile methodology combined with deep industry expertise ensures we deliver solutions that exceed expectations.',
     },
 ];
-
-export const stats = [
-    {
-        label: 'Projects Completed',
-        value: '50+',
-    },
-    {
-        label: 'Happy Clients',
-        value: '100+',
-    },
-    {
-        label: 'Team Members',
-        value: '10+',
-    },
-    {
-        label: 'Years Experience',
-        value: '5+',
-    },
-];

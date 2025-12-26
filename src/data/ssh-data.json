@@ -1,0 +1,106 @@
+{
+    "company_info": {
+        "name": "SSH Softtech Solution",
+        "website": "https://www.sshsofttech.com",
+        "email": "connect@sshsofttech.com",
+        "phone": {
+            "india": "+91 7903985142",
+            "usa": "+1 302 401 9055"
+        },
+        "profile_summary": "A fast-growing technology and AI solutions company delivering intelligent, scalable, and business-ready software products for startups, SMEs, and enterprises."
+    },
+    "value_proposition": [
+        "Served 20+ clients across multiple industries.",
+        "Expertise in AI agents, web, and mobile application development.",
+        "Cost-effective, scalable, and secure AI solutions.",
+        "Seamless integration with existing enterprise systems.",
+        "Global delivery and support for India and USA clients."
+    ],
+    "products": [
+        {
+            "id": "ai-chatbot",
+            "name": "AI Chatbot - Document Upload & Intelligent Q&A",
+            "description": "An enterprise-grade AI chatbot that enables organizations to upload documents such as PDFs, policies, manuals, and reports. Users can ask questions in natural language and receive accurate, context-aware answers.",
+            "key_features": [
+                "Document-based Q&A (PDFs, manuals, reports)",
+                "Natural language processing",
+                "Context-aware answers",
+                "Converts static documents into interactive knowledge systems"
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
+        },
+        {
+            "id": "ai-voice-agent",
+            "name": "AI Voice Agent - Inbound & Outbound Call Automation",
+            "description": "A conversational AI voice agent designed to manage inbound and outbound calls. It automates customer support, appointment reminders, follow-ups, and information dissemination using natural, human-like speech.",
+            "key_features": [
+                "Inbound & Outbound call automation",
+                "Natural, human-like speech",
+                "Appointment scheduling and routing",
+                "Automated follow-ups"
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
+        },
+        {
+            "id": "extract-agent",
+            "name": "Extract Agent - Intelligent Document & Handwritten Data Extraction",
+            "description": "An advanced AI extraction solution capable of reading scanned documents, invoices, and handwritten forms. It extracts structured text and key-value information directly into databases.",
+            "key_features": [
+                "Reads scanned documents and handwritten forms",
+                "Extracts structured text and key-value pairs",
+                "Automates data entry into databases",
+                "Supports invoices and PDFs"
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
+        }
+    ],
+    "services": [
+        {
+            "id": "web-&-mobile-development",
+            "title": "AI Powered Web & Mobile Development",
+            "description": "Custom, responsive websites and web applications built with modern technologies. We create stunning, high-performance digital experiences for iOS and Android, focusing on intuitive design.",
+            "capabilities": [
+                "Resposive Web Design and Architectures",
+                "Cross-platform Mobile App Development (iOS & Android)",
+                "AI-driven user journeys",
+                "Progressive Web Apps (PWA)"
+            ]
+        },
+        {
+            "id": "custom-software",
+            "title": "Custom Software Solutions",
+            "description": "Bespoke software solutions tailored to your specific business needs and complex operational challenges. Your vision combined with our code to deliver a solution that works exactly as you want.",
+            "capabilities": [
+                "Complex Business Logic",
+                "Operational Challenges Automation",
+                "Bespoke system architecture",
+                "Scalable and Secure Infrastructure"
+            ]
+        },
+        {
+            "id": "custom-ai",
+            "title": "Custom Chatbot Development",
+            "description": "Get custom chatbots tailored for your use case & integrated with your existing & preferred software system. We build agents that understand context and execute complex business logic.",
+            "capabilities": [
+                "Document-based Q&A (PDFs, manuals, reports)",
+                "Natural language processing",
+                "Legacy system and custom LLM integration",
+                "Data analytics and insights with multi-platform deployment"
+            ]
+        },
+        {
+            "id": "e-commerce",
+            "title": "E-commerce Development",
+            "description": "Scalable online stores with secure payment gateways, seamless inventory management, and powerful sales drivers. Be it chat storefronts or AI-assisted e-shopping.",
+            "capabilities": [
+                "Secure Payment Gateways",
+                "Seamless & Smart Inventory Management",
+                "Powerful Sales Drivers & conversion optimized UI",
+                "AI-assisted e-shopping"
+            ]
+        }
+    ]
+}
