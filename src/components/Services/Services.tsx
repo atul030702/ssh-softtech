@@ -3,7 +3,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 import { servicesData } from "./constants";
 
-const Services: React.FC = () => {
+const ServicesSectionHero = () => {
     return (
         <section id="services" className="py-24 relative overflow-hidden">
             {/* Background Decor */}
@@ -73,4 +73,4 @@ const ServiceCard: React.FC<{ service: typeof servicesData[0]; index: number }> 
     );
 };
 
-export default Services;
+export default ServicesSectionHero;

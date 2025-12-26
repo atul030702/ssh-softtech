@@ -12,47 +12,24 @@ const Navbar = () => {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [currentHash, setCurrentHash] = useState('');
-
-    useEffect(() => {
-        setCurrentHash('');
-    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
-        const handleHashChange = () => setCurrentHash(window.location.hash);
-
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('hashchange', handleHashChange);
         handleScroll();
-        handleHashChange();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('hashchange', handleHashChange);
         };
     }, []);
 
-    const isHomePage = pathname === '/';
-    const activeLabel = (currentHash
-        ? navItems.find(item => item.href === currentHash)
-        : navItems.find(item => item.href === pathname))?.label;
+    const activeLabel = navItems.find(item => item.href === pathname)?.label;
 
-    const handleNavigation = (e: React.MouseEvent, item: { href: string; label: string }) => {
-        const isHash = item.href.startsWith('#');
-
+    const handleNavigation = () => {
         setMobileMenuOpen(false);
-
-        if (isHash && isHomePage) {
-            e.preventDefault();
-            document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-            window.history.pushState(null, '', item.href);
-            setCurrentHash(item.href);
-        }
     };
 
     const renderNavItem = (item: { href: string; label: string }, isMobile = false) => {
-        const isHash = item.href.startsWith('#');
         const isActive = activeLabel === item.label;
 
         const baseClassName = "text-sm font-medium transition-all cursor-pointer";
@@ -68,10 +45,9 @@ const Navbar = () => {
         return (
             <Link
                 key={item.label}
-                href={isHash && !isHomePage ? `/${item.href}` : item.href}
+                href={item.href}
                 className={`${baseClassName} ${isMobile ? mobileClassName : desktopClassName}`}
-                onClick={(e) => handleNavigation(e, item)}
-                prefetch={true}
+                onClick={handleNavigation}
             >
                 {item.label}
             </Link>

@@ -1,7 +1,7 @@
 export const navItems = [
     {
         label: 'Services',
-        href: '#services',
+        href: '/services',
     },
     {
         label: 'Products',
