@@ -4,6 +4,7 @@ import "./globals.css";
 
 import ThemeProvider from "../Provider/ThemeProvider";
 import Navbar from "../components/Navbar";
+import ChatWidget from "../components/ChatWidget/ChatWidget";
 import Footer from "../components/Footer";
 
 const inter = Inter({
@@ -38,6 +39,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ChatWidget />
           </div>
         </ThemeProvider>
       </body>
