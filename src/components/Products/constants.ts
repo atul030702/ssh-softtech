@@ -53,9 +53,10 @@ export const mainProducts = [
 ];
 
 export const marketingData = [
-    "Generate 10x more leads",
-    "Solve 80% more queries",
-    "Engage 70% more visitors",
+    "Resolve queries instantly 24/7",
+    "Process Invoices 10x Faster",
+    "Slash operational costs",
+    "Eliminate Manual Data Entry",
 ];
 
 export const stats = [

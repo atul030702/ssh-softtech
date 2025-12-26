@@ -68,7 +68,7 @@ const Products = () => {
                             className="flex flex-col justify-center items-center"
                             delay={0.3}
                         >
-                            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                            <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-4">
                                 {marketingData.map((item, index) => (
                                     <div key={index} className="inline-flex items-center gap-2 bg-slate-200 dark:bg-slate-800 py-1 px-4 rounded-3xl">
                                         <div className="w-4 h-4 flex items-center justify-center rounded-full bg-green-600 dark:bg-green-500">
@@ -82,9 +82,10 @@ const Products = () => {
                             <img
                                 src="./product_hero_image.png"
                                 alt="product hero image"
-                                className="w-full sm:w-auto"
+                                className="w-full object-cover"
                                 loading="lazy"
                                 decoding="async"
+                                draggable={false}
                             />
                         </ScrollReveal>
                     </div>
