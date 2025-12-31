@@ -27,7 +27,7 @@
                 "Context-aware answers",
                 "Converts static documents into interactive knowledge systems"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
         },
         {
@@ -40,7 +40,7 @@
                 "Appointment scheduling and routing",
                 "Automated follow-ups"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
         },
         {
@@ -53,7 +53,7 @@
                 "Automates data entry into databases",
                 "Supports invoices and PDFs"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
         }
     ],
@@ -68,7 +68,7 @@
                 "AI-driven user journeys",
                 "Progressive Web Apps (PWA)"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Project based",
             "contact_for_pricing": true
         },
         {
@@ -81,7 +81,7 @@
                 "Bespoke system architecture",
                 "Scalable and Secure Infrastructure"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Project based",
             "contact_for_pricing": true
         },
         {
@@ -94,7 +94,7 @@
                 "Legacy system and custom LLM integration",
                 "Data analytics and insights with multi-platform deployment"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Project based",
             "contact_for_pricing": true
         },
         {
@@ -107,7 +107,7 @@
                 "Powerful Sales Drivers & conversion optimized UI",
                 "AI-assisted e-shopping"
             ],
-            "engagement_model": "Custom Quote Required",
+            "pricing-policy": "Project based",
             "contact_for_pricing": true
         }
     ]

@@ -15,10 +15,9 @@ CORE DATA: ${JSON.stringify(sshSofttechData)}
 
 RULES:
 1. ONLY answer questions based on the "CORE DATA".
-2. If the user asks about technical stacks, emphasize our expertise in TypeScript, React, and Go.
-3. If the user asks for pricing, provide the general range from the data but mention that custom quotes require a call.
-4. Keep answers concise and short.
-5. Use markdown formatting (bold, headers, italics, lists, line-breaks, etc.).
+2. If user is enquiring about our products or services, act like a professional salesperson.
+3. Keep answers concise and short.
+4. Use markdown formatting (bold, headers, italics, lists, line-breaks, etc.).
 `;
 
 export async function getAiResponse(messages: Message[]) {

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -69,18 +70,15 @@ const ChatWidget = () => {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 z-60 font-sans">
-
-            {/* --- Launcher Button --- */}
+        <div className="fixed bottom-4 right-4 z-50 font-sans">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`group relative flex items-center justify-center cursor-pointer transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                className={`relative flex items-center justify-center cursor-pointer transition-opacity duration-200 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
-                {/* Text Label (Tooltip) */}
                 <div className={`
                     absolute right-full mr-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white 
                     px-4 py-2 rounded-xl shadow-lg border border-slate-100 dark:border-white/10
-                    whitespace-nowrap font-medium text-sm transition-all duration-300 origin-right
+                    whitespace-nowrap font-medium text-sm transition-all duration-200 origin-right
                 `}>
                     🙋‍♂️ I'm here to help you
                     {/* Arrow/Triangle */}
@@ -88,15 +86,13 @@ const ChatWidget = () => {
                 </div>
 
                 {/* Circle Icon */}
-                <div className={`
-                    w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300
-                    bg-brand-600 hover:bg-brand-700 text-white relative overflow-hidden
-                `}>
-                    <div className="flex flex-col items-center justify-center leading-none">
-                        <span className="text-[10px] font-bold opacity-80">SSH</span>
-                        <Bot size={24} />
-                    </div>
-                </div>
+                <Image
+                    src="/ssh-logo.svg"
+                    alt="chatbot logo"
+                    className="object-cover rounded-full overflow-hidden"
+                    height={48}
+                    width={48}
+                />
             </button>
 
             {/* --- Chat Modal --- */}

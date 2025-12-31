@@ -1,9 +1,51 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { X, MapPin, Check } from 'lucide-react';
 
 const ContactForm = () => {
+    const [loading, setLoading] = useState<boolean>(false);
+    const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+
+    async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const rawData = Object.fromEntries(new FormData(form));
+
+        const apiData = {
+            name: rawData.fullName,
+            email: rawData.email,
+            phone: rawData.phone,
+            subject: rawData.requirement,
+            description: rawData.message,
+        };
+        console.log(apiData);
+
+        try {
+            setLoading(true);
+            setStatus({ type: null, message: '' });
+            const response = await fetch(`${process.env.BASE_URL}/contact/website1`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(apiData),
+            });
+
+            if (!response.ok) throw new Error('Submission failed');
+
+            setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
+            form.reset();
+
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setStatus({ type: 'error', message: 'There was an error sending your message. Please try again.' });
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div
             id="contact-form-popover"
@@ -15,18 +57,16 @@ const ContactForm = () => {
                 className="absolute top-4 right-4 z-20 p-2 text-slate-500 dark:text-white/50 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
                 popoverTarget="contact-form-popover"
                 popoverTargetAction="hide"
+                onClick={() => setStatus({ type: null, message: '' })}
             >
                 <X size={24} />
             </button>
 
             <div className="flex flex-col lg:flex-row h-full max-h-[90vh] lg:max-h-[800px] overflow-y-auto lg:overflow-hidden">
-
-                {/* --- LEFT COLUMN (Info & Map) --- */}
                 <div className="w-full lg:w-5/12 p-8 lg:p-12 bg-slate-50 dark:bg-[#0a0a0a] flex flex-col justify-start relative border-r border-slate-200 dark:border-white/5">
                     <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Let's get in touch</h2>
-                    <p className="text-slate-600 dark:text-gray-400 mb-8">Our team will respond within 24 hours.</p>
+                    <p className="text-slate-600 dark:text-gray-400 mb-8">Our team will respond within 24-48 hours.</p>
 
-                    {/* Map Card */}
                     <div className="relative w-full aspect-video lg:aspect-square rounded-2xl overflow-hidden mb-8 border border-slate-200 dark:border-white/10 group shadow-sm dark:shadow-none">
                         {/* Placeholder map image or iframe */}
                         <iframe
@@ -47,58 +87,120 @@ const ContactForm = () => {
                             <MapPin size={20} className="text-red-500" />
                         </div>
                     </div>
+
+                    {/* Status Message */}
+                    {status.message && (
+                        <div className={`mt-auto p-4 rounded-xl border ${status.type === 'success'
+                            ? 'bg-green-50 border-green-200 text-green-700 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300'
+                            : 'bg-red-50 border-red-200 text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-300'
+                            } transition-all animate-in fade-in slide-in-from-bottom-2`}>
+                            <p className="font-medium text-sm flex items-center gap-2">
+                                {status.type === 'success' ? (
+                                    <Check className="w-4 h-4" />
+                                ) : (
+                                    <X className="w-4 h-4" />
+                                )}
+                                {status.message}
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 {/* --- RIGHT COLUMN (Form) --- */}
                 <div className="w-full lg:w-7/12 p-8 lg:p-12 bg-white dark:bg-black flex flex-col justify-center">
-                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                        <input
-                            type="text"
-                            placeholder="Full Name *"
-                            className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
-                            required
-                        />
+                    <form className="space-y-6" onSubmit={handleFormSubmit}>
+                        <div className="space-y-2">
+                            <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                                Full Name <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                id="fullName"
+                                name="fullName"
+                                type="text"
+                                placeholder="John Doe"
+                                className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+                                required
+                            />
+                        </div>
 
                         {/* Email */}
-                        <input
-                            type="email"
-                            placeholder="Email Address *"
-                            className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
-                            required
-                        />
+                        <div className="space-y-2">
+                            <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                                Email Address <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="john@example.com"
+                                className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+                                required
+                            />
+                        </div>
 
                         {/* Phone */}
-                        <div className="flex gap-4">
+                        <div className="space-y-2">
+                            <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                                Phone Number (with country code) <span className="text-red-500">*</span>
+                            </label>
                             <input
+                                id="phone"
+                                name="phone"
                                 type="tel"
-                                placeholder="Mobile Number *"
+                                placeholder="+1 (123) 456-7890"
                                 className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
                                 required
                             />
                         </div>
 
                         {/* Requirement */}
-                        <select defaultValue="Select" className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors appearance-none cursor-pointer">
-                            <option value="Select" disabled>Select Your Requirement *</option>
-                            <option value="ai-chatbot">AI Chatbot</option>
-                            <option value="voice-agent">Voice Agent</option>
-                            <option value="data-extraction">Data Extraction</option>
-                            <option value="custom">Custom Solution</option>
-                            <option value="ecommerce">E-commerce</option>
-                            <option value="web-development">Web + Mobile Development</option>
-                        </select>
+                        <div className="space-y-2">
+                            <label htmlFor="requirement" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                                Requirement <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="requirement"
+                                name="requirement"
+                                defaultValue=""
+                                className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors appearance-none cursor-pointer"
+                                required
+                            >
+                                <option value="" disabled>Select Your Requirement</option>
+                                <option value="ai-chatbot">AI Chatbot</option>
+                                <option value="voice-agent">Voice Agent</option>
+                                <option value="data-extraction">Data Extraction</option>
+                                <option value="custom">Custom Solution</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="web-development">Web + Mobile Development</option>
+                                <option value="others">Other</option>
+                            </select>
+                        </div>
 
                         {/* Notes */}
-                        <textarea
-                            placeholder="Additional Notes (Optional)"
-                            rows={4}
-                            className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors resize-none"
-                        />
+                        <div className="space-y-2">
+                            <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                                Message <span className="text-gray-400 font-normal">(Optional)</span>
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell us more about your project..."
+                                rows={4}
+                                className="w-full bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-lg px-4 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors resize-none"
+                            />
+                        </div>
 
                         {/* Checkbox */}
                         <div className="flex items-start gap-3">
-                            <div className="relative flex items-center">
-                                <input type="checkbox" id="consent" className="peer w-5 h-5 appearance-none border border-brand-500 rounded bg-white dark:bg-black checked:bg-brand-500 checked:border-brand-500 cursor-pointer" defaultChecked />
+                            <div className="relative flex items-center pt-1">
+                                <input
+                                    type="checkbox"
+                                    id="consent"
+                                    name="consent"
+                                    className="peer w-5 h-5 appearance-none border border-brand-500 rounded bg-white dark:bg-black checked:bg-brand-500 checked:border-brand-500 cursor-pointer"
+                                    defaultChecked
+                                    required
+                                />
                                 <Check size={14} className="absolute inset-0 m-auto text-white pointer-events-none hidden peer-checked:block" />
                             </div>
                             <label htmlFor="consent" className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed cursor-pointer select-none">
@@ -112,8 +214,12 @@ const ContactForm = () => {
                         </div>
 
                         {/* Submit */}
-                        <button className="w-full inline-flex items-center justify-center px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
-                            Submit
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="w-full inline-flex items-center justify-center px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                        >
+                            {loading ? 'Submitting...' : 'Submit'}
                         </button>
                     </form>
                 </div>
