@@ -50,3 +50,5 @@ export const footerItems = [
         href: '/privacy-policy',
     },
 ];
+
+export const POST_URL = 'https://managerial-giselle-bisanjeevni-d402e2ea.koyeb.app/api/contact/website1';

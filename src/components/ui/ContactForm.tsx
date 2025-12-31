@@ -1,50 +1,12 @@
 "use client";
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { X, MapPin, Check } from 'lucide-react';
+import { X, MapPin, Check, Loader2, Send } from 'lucide-react';
+
+import useSendFormData from '@/hooks/useSendFormData';
 
 const ContactForm = () => {
-    const [loading, setLoading] = useState<boolean>(false);
-    const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
-
-    async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const form = e.currentTarget;
-        const rawData = Object.fromEntries(new FormData(form));
-
-        const apiData = {
-            name: rawData.fullName,
-            email: rawData.email,
-            phone: rawData.phone,
-            subject: rawData.requirement,
-            description: rawData.message,
-        };
-        console.log(apiData);
-
-        try {
-            setLoading(true);
-            setStatus({ type: null, message: '' });
-            const response = await fetch(`https://managerial-giselle-bisanjeevni-d402e2ea.koyeb.app/api/contact/website1`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(apiData),
-            });
-
-            if (!response.ok) throw new Error('Submission failed');
-
-            setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
-            form.reset();
-
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            setStatus({ type: 'error', message: 'There was an error sending your message. Please try again.' });
-        } finally {
-            setLoading(false);
-        }
-    }
+    const { loading, status, setStatus, handleFormSubmit } = useSendFormData();
 
     return (
         <div
@@ -217,9 +179,19 @@ const ContactForm = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full inline-flex items-center justify-center px-8 py-4 gap-2 bg-brand-light/90 hover:bg-brand-light text-white rounded-xl font-semibold transition-all shadow-lg shadow-brand-light/20 hover:shadow-brand-light/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                            className="bg-brand-light hover:bg-brand-light/90 text-white px-10 py-4 font-medium inline-flex items-center shadow-2xl rounded-xl transition-all cursor-pointer hover:scale-105 hover:-translate-y-0.5 active:scale-95 disabled:opacity-70 disabled:pointer-events-none"
                         >
-                            {loading ? 'Submitting...' : 'Submit'}
+                            {loading ? (
+                                <>
+                                    <Loader2 className="mr-2 animate-spin" size={18} />
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    <Send className="mr-2" size={18} />
+                                    Send Message
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
