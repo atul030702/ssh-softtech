@@ -31,3 +31,10 @@ export interface SSHCompanyData {
     services: SSHService[];
     products: SSHProduct[];
 }
+
+export interface Message {
+    id: string;
+    text: string;
+    sender: 'user' | 'bot';
+    timestamp: Date;
+}

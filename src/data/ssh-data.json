@@ -67,7 +67,9 @@
                 "Cross-platform Mobile App Development (iOS & Android)",
                 "AI-driven user journeys",
                 "Progressive Web Apps (PWA)"
-            ]
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
         },
         {
             "id": "custom-software",
@@ -78,7 +80,9 @@
                 "Operational Challenges Automation",
                 "Bespoke system architecture",
                 "Scalable and Secure Infrastructure"
-            ]
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
         },
         {
             "id": "custom-ai",
@@ -89,7 +93,9 @@
                 "Natural language processing",
                 "Legacy system and custom LLM integration",
                 "Data analytics and insights with multi-platform deployment"
-            ]
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
         },
         {
             "id": "e-commerce",
@@ -100,7 +106,9 @@
                 "Seamless & Smart Inventory Management",
                 "Powerful Sales Drivers & conversion optimized UI",
                 "AI-assisted e-shopping"
-            ]
+            ],
+            "engagement_model": "Custom Quote Required",
+            "contact_for_pricing": true
         }
     ]
 }

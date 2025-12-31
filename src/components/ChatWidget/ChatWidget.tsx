@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Clock, X, Send, Bot } from "lucide-react";
 
-interface Message {
-    id: string;
-    text: string;
-    sender: 'user' | 'bot';
-    timestamp: Date;
-}
+import { Message } from "@/types/company";
+import { getAiResponse } from "./aiResponse";
 
 const ChatWidget = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +29,7 @@ const ChatWidget = () => {
         scrollToBottom();
     }, [messages, isOpen]);
 
-    const handleSendMessage = (e?: React.FormEvent) => {
+    const handleSendMessage = async (e?: React.FormEvent) => {
         e?.preventDefault();
 
         if (!inputValue.trim()) return;
@@ -43,19 +41,31 @@ const ChatWidget = () => {
             timestamp: new Date()
         };
 
-        setMessages(prev => [...prev, newUserMessage]);
+        const updatedMessages = [...messages, newUserMessage];
+        setMessages(updatedMessages);
         setInputValue("");
 
-        // Simulate bot response
-        setTimeout(() => {
+        // Get bot response
+        try {
+            const aiResponseText = await getAiResponse(updatedMessages);
+
             const botResponse: Message = {
                 id: (Date.now() + 1).toString(),
-                text: "Thanks for reaching out! Our team is currently offline, but please leave your contact details in the 'Contact Us' form and we'll get back to you shortly.",
+                text: aiResponseText,
                 sender: 'bot',
                 timestamp: new Date()
             };
             setMessages(prev => [...prev, botResponse]);
-        }, 1000);
+        } catch (error) {
+            console.error("Failed to get AI response", error);
+            const errorResponse: Message = {
+                id: (Date.now() + 1).toString(),
+                text: "Sorry, I encountered an error. Please try again.",
+                sender: 'bot',
+                timestamp: new Date()
+            };
+            setMessages(prev => [...prev, errorResponse]);
+        }
     };
 
     return (
@@ -107,10 +117,10 @@ const ChatWidget = () => {
                             <Bot size={18} />
                         </div>
                         <div>
-                            <h3 className="font-bold text-sm">SSH Support</h3>
+                            <h3 className="font-bold text-sm">SSH Support Bot</h3>
                             <p className="text-xs text-brand-100 flex items-center gap-1">
                                 <Clock size={16} />
-                                Usual reply time: 2 to 3 Minutes
+                                Usual reply time: 1 to 2 Minutes
                             </p>
                         </div>
                     </div>
@@ -138,7 +148,9 @@ const ChatWidget = () => {
                                     }
                                 `}
                             >
-                                {msg.text}
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                    {msg.text}
+                                </ReactMarkdown>
                             </div>
                         </div>
                     ))}
