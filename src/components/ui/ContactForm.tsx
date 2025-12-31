@@ -25,7 +25,7 @@ const ContactForm = () => {
         try {
             setLoading(true);
             setStatus({ type: null, message: '' });
-            const response = await fetch(`${process.env.BASE_URL}/contact/website1`, {
+            const response = await fetch(`https://managerial-giselle-bisanjeevni-d402e2ea.koyeb.app/api/contact/website1`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
