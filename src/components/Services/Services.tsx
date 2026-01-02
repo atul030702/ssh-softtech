@@ -21,7 +21,7 @@ const ServicesSectionHero = () => {
                             Software Solutions
                         </span>
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
+                    <p className="text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
                         Engineering ideas into digital solutions. We deliver full-stack, AI-powered systems designed for scale and performance.
                     </p>
                 </ScrollReveal>
@@ -72,7 +72,7 @@ const ServiceCard: React.FC<{ service: typeof servicesData[0]; index: number; cl
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {service.title}
                 </h3>
-                <p className="text-slate-600 dark:text-gray-400 leading-relaxed mb-4">
+                <p className="text-slate-600 dark:text-gray-300 leading-relaxed mb-4">
                     {service.description}
                 </p>
 

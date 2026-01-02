@@ -12,6 +12,7 @@ const ContactSection = () => {
     return (
         <section
             id="contact"
+            aria-labelledby="contact page"
             className="py-24 relative overflow-hidden bg-slate-50 dark:bg-dark-950"
         >
             <ContactDotsBackground />

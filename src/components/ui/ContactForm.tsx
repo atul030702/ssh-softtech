@@ -12,6 +12,8 @@ const ContactForm = () => {
         <div
             id="contact-form-popover"
             popover="auto"
+            aria-labelledby="contact-form-popover"
+            aria-describedby="contact-form-popover"
             className="m-auto w-full max-w-5xl p-0 bg-white dark:bg-black text-slate-900 dark:text-white rounded-3xl overflow-hidden shadow-2xl backdrop:backdrop-blur-sm backdrop:bg-black/50 open:animate-in open:fade-in open:zoom-in-95 open:duration-300 inset-0"
         >
             {/* Close Button */}
