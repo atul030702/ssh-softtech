@@ -110,5 +110,91 @@
             "pricing-policy": "Project based",
             "contact_for_pricing": true
         }
+    ],
+    "courses": [
+        {
+            "id": "full_stack_web",
+            "title": "Full Stack Web Development",
+            "duration": "20 Hours",
+            "description": "End-to-end web application development using modern frontend, backend, and deployment practices.",
+            "key_topics": [
+                "HTML, CSS, JavaScript (ES6+)",
+                "React & modern UI architecture",
+                "Node.js, REST APIs & authentication",
+                "Database design (PostgreSQL / MongoDB)",
+                "Git & deployment basics"
+            ],
+            "project": "Full-stack business web application"
+        },
+        {
+            "id": "mobile_app_dev",
+            "title": "Mobile App Development",
+            "duration": "20 Hours",
+            "description": "Build scalable cross-platform mobile applications integrated with backend services.",
+            "key_topics": [
+                "Flutter or React Native",
+                "State management & UI components",
+                "API integration & authentication",
+                "Push notifications",
+                "App deployment overview"
+            ],
+            "project": "End-to-end mobile application"
+        },
+        {
+            "id": "data_science_analytics",
+            "title": "Data Science & Analytics",
+            "duration": "20 Hours",
+            "description": "Analyze data and generate business insights using modern analytics tools.",
+            "key_topics": [
+                "Python for data analysis",
+                "EDA & visualization",
+                "Statistics fundamentals",
+                "SQL for analytics",
+                "Dashboarding concepts"
+            ],
+            "project": "Business analytics case study"
+        },
+        {
+            "id": "ai_machine_learning",
+            "title": "AI & Machine Learning",
+            "duration": "20 Hours",
+            "description": "Develop intelligent systems using machine learning and AI concepts.",
+            "key_topics": [
+                "Machine learning fundamentals",
+                "Feature engineering",
+                "Intro to NLP & computer vision",
+                "Generative AI basics",
+                "Model deployment overview"
+            ],
+            "project": "AI-powered solution"
+        },
+        {
+            "id": "data_engineering",
+            "title": "Data Engineering",
+            "duration": "20 Hours",
+            "description": "Design and implement scalable data pipelines.",
+            "key_topics": [
+                "Python & SQL",
+                "ETL/ELT pipelines",
+                "Data modeling",
+                "Intro to Spark",
+                "Cloud data concepts"
+            ],
+            "project": "Data pipeline implementation"
+        },
+        {
+            "id": "ui_ux_design",
+            "title": "UI/UX Design Mastery",
+            "duration": "15 Hours",
+            "description": "Create intuitive and user-centric digital designs.",
+            "key_topics": [
+                "UI/UX fundamentals",
+                "User research & wireframing",
+                "Figma tools",
+                "Responsive design",
+                "Design handoff"
+            ],
+            "project": "Complete UI/UX case study"
+        }
     ]
 }

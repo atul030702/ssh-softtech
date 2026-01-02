@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import ScrollReveal from './ui/ScrollReveal';
 import {
     Mail,
     Phone,
     MapPin,
 } from 'lucide-react';
 
+import ScrollReveal from './ui/ScrollReveal';
 import { footerItems, footerSocialIcons } from '../utils/footerConstant';
 
 const Footer = () => {
@@ -24,19 +24,18 @@ const Footer = () => {
                                 vision, our expertise.
                             </p>
                             <div className="flex space-x-4">
-                                {footerSocialIcons.map(
-                                    (item, index) => (
-                                        <Link
-                                            key={index}
-                                            href={item.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-slate-500 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transform hover:scale-110 hover:-translate-y-0.5 active:scale-95"
-                                        >
-                                            <item.icon size={20} />
-                                        </Link>
-                                    ),
-                                )}
+                                {footerSocialIcons.map((item) => (
+                                    <Link
+                                        key={item.label}
+                                        href={item.href}
+                                        title={item.label}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-slate-500 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transform hover:scale-110 hover:-translate-y-0.5 active:scale-95"
+                                    >
+                                        <item.icon size={20} />
+                                    </Link>
+                                ))}
                             </div>
                         </ScrollReveal>
                     </div>
@@ -49,8 +48,8 @@ const Footer = () => {
                                     'Web + Mobile App Development',
                                     'Custom Software Solutions',
                                     'E-Commerce Development',
-                                ].map((service, index) => (
-                                    <li key={index}>
+                                ].map((service) => (
+                                    <li key={service}>
                                         <Link
                                             href="/services" target="_blank" rel="noopener noreferrer"
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all hover:translate-x-1 inline-block duration-150 ease-out"
@@ -66,8 +65,8 @@ const Footer = () => {
                         <ScrollReveal delay={0.2}>
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Company</h3>
                             <ul className="space-y-3">
-                                {footerItems.map((item, index) => (
-                                    <li key={index}>
+                                {footerItems.map((item) => (
+                                    <li key={item.label}>
                                         <Link
                                             href={item.href} target="_blank" rel="noopener noreferrer"
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all hover:translate-x-1 inline-block duration-150 ease-out"

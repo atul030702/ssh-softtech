@@ -73,22 +73,25 @@ const ChatWidget = () => {
         <div className="fixed bottom-4 right-4 z-50 font-sans">
             <button
                 onClick={() => setIsOpen(!isOpen)}
+                title='Open SSH Support Chatbot'
+                aria-label='Open SSH Support Chatbot'
                 className={`relative flex items-center justify-center cursor-pointer transition-opacity duration-200 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
-                <div className={`
-                    absolute right-full mr-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white 
+                <div className='absolute right-full mr-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white 
                     px-4 py-2 rounded-xl shadow-lg border border-slate-100 dark:border-white/10
-                    whitespace-nowrap font-medium text-sm transition-all duration-200 origin-right
-                `}>
+                    whitespace-nowrap font-medium text-sm transition-all duration-200 origin-right'
+                    role="button"
+                >
                     🙋‍♂️ I'm here to help you
                     {/* Arrow/Triangle */}
-                    <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-white dark:bg-slate-800 rotate-45 border-t border-r border-slate-100 dark:border-white/10" />
+                    <div role='button' className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-white dark:bg-slate-800 rotate-45 border-t border-r border-slate-100 dark:border-white/10" />
                 </div>
 
                 {/* Circle Icon */}
                 <Image
                     src="/ssh-logo.svg"
                     alt="chatbot logo"
+                    role="img"
                     className="object-cover rounded-full overflow-hidden"
                     height={48}
                     width={48}
@@ -122,6 +125,8 @@ const ChatWidget = () => {
                     </div>
                     <button
                         onClick={() => setIsOpen(false)}
+                        title="Close SSH Support Chatbot"
+                        aria-label="Close SSH Support Chatbot"
                         className="p-1 hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
                     >
                         <X size={20} />
