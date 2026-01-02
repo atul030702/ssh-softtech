@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
                         Privacy Policy
                     </h1>
                     <p className="text-xl text-slate-500 dark:text-slate-400 font-medium">
-                        Effective Date: January 1, 2024. Your data privacy and protection is the core of our technical infrastructure.
+                        Effective Date: January 1, {new Date().getFullYear()}. Your data privacy and protection is the core of our technical infrastructure.
                     </p>
                 </header>
 

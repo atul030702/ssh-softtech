@@ -29,9 +29,6 @@ const ServicesSectionHero = () => {
                 {/* Services Grid - Bento Style */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
                     {servicesData.map((service, index) => {
-                        // Logic for 2-top, 3-bottom layout
-                        // First 2 items span 3 cols each (50% on large screens)
-                        // Next 3 items span 2 cols each (33% on large screens)
                         const isTopRow = index < 2;
                         const colSpanClass = isTopRow
                             ? "lg:col-span-3" // Top row: 2 cards
