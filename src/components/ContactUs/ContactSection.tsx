@@ -12,6 +12,7 @@ const ContactSection = () => {
     return (
         <section
             id="contact"
+            aria-labelledby="contact page"
             className="py-24 relative overflow-hidden bg-slate-50 dark:bg-dark-950"
         >
             <ContactDotsBackground />
@@ -35,7 +36,7 @@ const ContactSection = () => {
                         delay={0.2}
                         className="bg-white dark:bg-white/5 backdrop-blur-lg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-white/20 shadow-2xl dark:shadow-none"
                     >
-                        <form className="space-y-6" onSubmit={handleFormSubmit}>
+                        <form className="space-y-4" onSubmit={handleFormSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="group transition-transform duration-200 hover:scale-[1.02]">
                                     <label
@@ -75,15 +76,14 @@ const ContactSection = () => {
                                     htmlFor="company"
                                     className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2"
                                 >
-                                    Company Name
+                                    Company Name (Optional)
                                 </label>
                                 <input
                                     type="text"
                                     id="company"
                                     name="company"
-                                    required
                                     className="w-full bg-slate-50 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-xl p-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-400 focus:outline-none focus:border-brand-light dark:focus:border-brand-light focus:ring-2 focus:ring-brand-light/50 transition-all"
-                                    placeholder="Your Company"
+                                    placeholder="eg: SSH Softtech"
                                 />
                             </div>
                             <div className="group transition-transform duration-200 hover:scale-[1.02]">
@@ -142,7 +142,7 @@ const ContactSection = () => {
                     </ScrollReveal>
 
                     <ScrollReveal
-                        delay={0.4}
+                        delay={0.3}
                         className="mt-12 text-center"
                     >
                         <p className="text-slate-600 dark:text-gray-300">

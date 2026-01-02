@@ -13,20 +13,21 @@ const ServicesPage = () => {
             {/* --- HERO SECTION --- */}
             <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 z-0 pointer-events-none">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-from)_0%,transparent_70%)] from-brand-500/10 dark:from-brand-500/5" />
-                    <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05]" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-from)_0%,transparent_60%)] from-indigo-500/10 dark:from-indigo-500/10 blur-3xl opacity-50" />
+                    <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]" />
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-10 px-6 lg:px-8">
-                    <ScrollReveal className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-[0.9] text-slate-900 dark:text-white">
+                    <ScrollReveal className="max-w-6xl mx-auto text-center flex flex-col items-center">
+                        <h1 className="text-3xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.1] text-slate-900 dark:text-white">
                             Engineering{' '}
-                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-600 dark:via-brand-dark dark:to-blue-600 animate-gradient-x">
-                                Digital Excellence
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-violet-600 to-blue-600 dark:from-blue-400 dark:via-violet-400 dark:to-blue-400 animate-gradient-x text-glow-sm">
+                                Digital Intelligence
                             </span>
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10 font-medium text-center">
-                            We bridge the gap between human vision and autonomous software. From specialized AI agents to enterprise-grade web platforms.
+
+                        <p className="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed mb-12 font-medium text-center">
+                            We don't just build software; we engineer autonomous systems. Bridge the gap between human vision and algorithmic precision with our AI-native solutions.
                         </p>
                     </ScrollReveal>
                 </div>
