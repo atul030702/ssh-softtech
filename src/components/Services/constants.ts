@@ -3,53 +3,47 @@ import { Globe, Smartphone, Code, ShoppingCart, Cloud, BrainCircuit, MessageSqua
 
 export const servicesData = [
     {
+        icon: React.createElement(BrainCircuit, { size: 28 }),
+        title: "Custom AI Agents & Chatbots",
+        description: "Deploy intelligent agents that understand context, execute complex business logic, and autonomously resolve customer queries 24/7.",
+        color: "bg-brand-light"
+    },
+    {
         icon: React.createElement(Globe, { size: 28 }),
-        title: "Web Development",
-        description: "Custom, responsive websites and web applications built with modern technologies. We create stunning, high-performance digital experiences.",
-        color: "bg-blue-500"
+        title: "AI-Powered Web Apps",
+        description: "Next-gen web platforms integrated with predictive analytics and personalized user experiences, built on robust, scalable architectures.",
+        color: "bg-brand-light"
     },
     {
         icon: React.createElement(Smartphone, { size: 28 }),
-        title: "Mobile App Development",
-        description: "Native and cross-platform mobile applications for iOS and Android, focusing on intuitive design and user engagement.",
-        color: "bg-purple-500"
+        title: "Intelligent Mobile Solutions",
+        description: "Smart mobile applications with on-device AI capabilities, ensuring seamless performance and adaptive user interfaces.",
+        color: "bg-brand-light"
     },
     {
         icon: React.createElement(Code, { size: 28 }),
-        title: "Custom Software",
-        description: "Bespoke software solutions tailored to your specific business needs and complex operational challenges.",
-        color: "bg-emerald-500"
+        title: "Enterprise AI Software",
+        description: "Bespoke software ecosystems driven by machine learning algorithms to automate workflows and optimize operational efficiency.",
+        color: "bg-brand-light"
     },
     {
         icon: React.createElement(ShoppingCart, { size: 28 }),
-        title: "E-commerce Development",
-        description: "Scalable online stores with secure payment gateways, seamless inventory management, and powerful sales drivers.",
-        color: "bg-orange-500"
+        title: "Smart E-commerce",
+        description: "Conversion-focused online stores featuring AI-driven recommendations, dynamic pricing, and intelligent inventory management.",
+        color: "bg-brand-light"
     },
-    {
-        icon: React.createElement(Cloud, { size: 28 }),
-        title: "Cloud Computing",
-        description: "Secure, scalable cloud infrastructure and migration services (AWS/Azure) for optimal cost-efficiency and performance.",
-        color: "bg-sky-500"
-    },
-    {
-        icon: React.createElement(BrainCircuit, { size: 28 }),
-        title: "AI & Machine Learning",
-        description: "Intelligent algorithms and predictive models that automate processes and unlock actionable insights from your data.",
-        color: "bg-pink-500"
-    }
 ];
 
 export const servicesPageData = [
     {
         id: 1,
-        title: "Custom Chatbot Development",
-        description: "Get custom chatbots tailored for your use case & integrated with your existing & preferred software system. We build agents that understand context and execute complex business logic.",
+        title: "Custom AI Agents & Chatbots",
+        description: "Beyond simple scripts. We build context-aware AI agents that integrate deeply with your CRM and internal tools to automate complex workflows and drive engagement.",
         features: [
             "Custom RAG Pipelines",
-            "Legacy System Integration",
-            "Context-Aware Logic",
-            "Multi-platform Deployment"
+            "Autonomous Task Execution",
+            "Context-Aware Conversations",
+            "Multi-Agent Orchestration"
         ],
         icon: React.createElement(MessageSquare, { size: 32 }),
         color: "from-blue-600/10 to-cyan-500/10",
@@ -58,13 +52,13 @@ export const servicesPageData = [
     },
     {
         id: 2,
-        title: "AI Powered Web + Mobile Dev",
-        description: "Custom, responsive websites and web applications built with modern technologies. We create stunning, high-performance digital experiences for iOS and Android, focusing on intuitive design.",
+        title: "AI-Native Web Platforms",
+        description: "We engineer web applications that think. From predictive dashboards to personalized content engines, we embed intelligence into every layer of your digital presence.",
         features: [
-            "Responsive Web Architectures",
-            "Native iOS & Android Apps",
-            "High-performance Vitals",
-            "AI-driven User Journeys"
+            "AI-Driven Personalization",
+            "Predictive Analytics Integration",
+            "Self-Optimizing UX",
+            "Scalable Cloud Architectures"
         ],
         icon: React.createElement(Layout, { size: 32 }),
         color: "from-purple-600/10 to-pink-500/10",
@@ -73,13 +67,13 @@ export const servicesPageData = [
     },
     {
         id: 3,
-        title: "Custom Software Solutions",
-        description: "Bespoke software solutions tailored to your specific business needs and complex operational challenges. Your vision combined with our code to deliver a solution that works exactly as you want.",
+        title: "Enterprise AI Software",
+        description: "Transform your operations with bespoke software that learns from your data. We build systems that automate decision-making and optimize resource allocation in real-time.",
         features: [
-            "Complex Backend Logic",
-            "Operational Automation",
-            "Bespoke System Architecture",
-            "Scalable Infrastructure"
+            "Automated Decision Engines",
+            "Process Mining & Optimization",
+            "Predictive Maintenance",
+            "Secure AI Infrastructure"
         ],
         icon: React.createElement(Code, { size: 32 }),
         color: "from-amber-600/10 to-orange-500/10",
@@ -88,13 +82,13 @@ export const servicesPageData = [
     },
     {
         id: 4,
-        title: "E-commerce Development",
-        description: "Scalable online stores with secure payment gateways, seamless inventory management, and powerful sales drivers. Be it chat storefronts or AI-assisted e-shopping.",
+        title: "Smart Commerce Systems",
+        description: "Turn your e-commerce store into a sales machine with AI. Implement semantic search, visual discovery, and hyper-personalized shopping journeys that convert.",
         features: [
-            "Secure Payment Systems",
-            "AI Assisted Shopping",
-            "Smart Inventory Logic",
-            "Conversion Optimized UI"
+            "Semantic Product Search",
+            "Dynamic Pricing Models",
+            "Visual Search & Discovery",
+            "Automated Inventory Intelligence"
         ],
         icon: React.createElement(ShoppingBag, { size: 32 }),
         color: "from-emerald-600/10 to-teal-500/10",
