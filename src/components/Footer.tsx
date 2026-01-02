@@ -4,13 +4,9 @@ import {
     Mail,
     Phone,
     MapPin,
-    Linkedin,
-    Twitter,
-    Facebook,
-    Instagram,
 } from 'lucide-react';
 
-import { footerItems } from '../utils/constants';
+import { footerItems, footerSocialIcons } from '../utils/footerConstant';
 
 const Footer = () => {
     return (
@@ -28,15 +24,17 @@ const Footer = () => {
                                 vision, our expertise.
                             </p>
                             <div className="flex space-x-4">
-                                {[Twitter, Facebook, Instagram, Linkedin].map(
-                                    (Icon, index) => (
-                                        <a
+                                {footerSocialIcons.map(
+                                    (item, index) => (
+                                        <Link
                                             key={index}
-                                            href="#"
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="text-slate-500 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transform hover:scale-110 hover:-translate-y-0.5 active:scale-95"
                                         >
-                                            <Icon size={20} />
-                                        </a>
+                                            <item.icon size={20} />
+                                        </Link>
                                     ),
                                 )}
                             </div>
@@ -47,19 +45,18 @@ const Footer = () => {
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Services</h3>
                             <ul className="space-y-3">
                                 {[
-                                    'AI Solutions',
-                                    'Web Development',
-                                    'Mobile App Development',
-                                    'Custom Software',
+                                    'Custom AI Chatbots Development',
+                                    'Web + Mobile App Development',
+                                    'Custom Software Solutions',
                                     'E-Commerce Development',
                                 ].map((service, index) => (
                                     <li key={index}>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            href="/services" target="_blank" rel="noopener noreferrer"
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all hover:translate-x-1 inline-block duration-150 ease-out"
                                         >
                                             {service}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -72,7 +69,7 @@ const Footer = () => {
                                 {footerItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
-                                            href={item.href} target="_blank" rel='noopener noreferrer'
+                                            href={item.href} target="_blank" rel="noopener noreferrer"
                                             className="text-sm text-slate-600 dark:text-gray-300 hover:text-brand-light dark:hover:text-brand-dark transition-all hover:translate-x-1 inline-block duration-150 ease-out"
                                         >
                                             {item.label}
@@ -85,18 +82,30 @@ const Footer = () => {
                     <div className="md:col-span-1">
                         <ScrollReveal delay={0.3}>
                             <h3 className="text-lg font-semibold mb-6 text-slate-900 dark:text-white">Contact</h3>
-                            <ul className="space-y-3">
-                                <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
-                                    <MapPin size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    Digha, Patna (800013)
+                            <ul className="space-y-4">
+                                <li className="flex items-start text-sm text-slate-600 dark:text-gray-300">
+                                    <MapPin size={18} className="mr-3 text-brand-light dark:text-brand-dark shrink-0 mt-0.5" />
+                                    <div className="flex flex-col gap-1.5">
+                                        <span>Patna, India</span>
+                                        <span>Delaware, United States</span>
+                                    </div>
+                                </li>
+                                <li className="flex items-start text-sm text-slate-600 dark:text-gray-300">
+                                    <Phone size={18} className="mr-3 text-brand-light dark:text-brand-dark shrink-0 mt-0.5" />
+                                    <div className="flex flex-col gap-1.5">
+                                        <a href="tel:+918303894288" className="hover:text-brand-light dark:hover:text-brand-dark transition-colors">
+                                            +91 83038 94288 (IN)
+                                        </a>
+                                        <a href="tel:+13024019055" className="hover:text-brand-light dark:hover:text-brand-dark transition-colors">
+                                            +1 (302) 401-9055 (USA)
+                                        </a>
+                                    </div>
                                 </li>
                                 <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
-                                    <Phone size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    +91 83038 94288
-                                </li>
-                                <li className="flex items-center text-sm text-slate-600 dark:text-gray-300">
-                                    <Mail size={16} className="mr-2 text-brand-light dark:text-brand-dark" />
-                                    connect@sshsofttech.com
+                                    <Mail size={18} className="mr-3 text-brand-light dark:text-brand-dark shrink-0" />
+                                    <a href="mailto:connect@sshsofttech.com" className="hover:text-brand-light dark:hover:text-brand-dark transition-colors">
+                                        connect@sshsofttech.com
+                                    </a>
                                 </li>
                             </ul>
                         </ScrollReveal>

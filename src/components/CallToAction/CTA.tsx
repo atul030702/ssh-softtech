@@ -3,6 +3,7 @@ import { ArrowRight, Bot } from 'lucide-react';
 
 import ScrollReveal from '../ui/ScrollReveal';
 import ContactForm from '../ui/ContactForm';
+import { cal_ssh_link } from '@/utils/constants';
 
 const CTA: React.FC = () => {
     return (
@@ -50,7 +51,7 @@ const CTA: React.FC = () => {
                         </button>
 
                         {/* Secondary Button */}
-                        <Link href="https://cal.com/atul-cal" target="_blank" rel='noopener noreferrer'
+                        <Link href={cal_ssh_link} target="_blank" rel='noopener noreferrer'
                             className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                         >
                             Book a Free Demo

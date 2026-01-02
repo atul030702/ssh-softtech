@@ -5,6 +5,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 import HeroCards from './HeroCards';
 import NeuralBackground from '../NeuralBackground';
 import ContactForm from '../ui/ContactForm';
+import { cal_ssh_link } from '@/utils/constants';
 
 const Hero: React.FC = () => {
     return (
@@ -57,7 +58,7 @@ const Hero: React.FC = () => {
                             <Cpu size={18} className="text-white" />
                             Build Your AI Solution
                         </button>
-                        <Link href="https://cal.com/atul-cal" target="_blank" rel='noopener noreferrer'
+                        <Link href={cal_ssh_link} target="_blank" rel='noopener noreferrer'
                             className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 dark:text-white rounded-xl font-semibold transition-all hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm flex items-center justify-center gap-2 group shadow-sm dark:shadow-none cursor-pointer"
                         >
                             Book a Free Demo

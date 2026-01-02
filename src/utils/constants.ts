@@ -28,27 +28,6 @@ export const colorClasses: Record<string, string> = {
     orange: "group-hover:bg-orange-50 dark:group-hover:bg-white/10",
 };
 
-export const footerItems = [
-    {
-        label: 'Book a Demo',
-        href: 'https://cal.com/atul-cal',
-    },
-    {
-        label: 'About Us',
-        href: '/about',
-    },
-    {
-        label: 'Contact Us',
-        href: '/contact',
-    },
-    {
-        label: 'Courses',
-        href: '/courses',
-    },
-    {
-        label: 'Privacy Policy',
-        href: '/privacy-policy',
-    },
-];
-
 export const POST_URL = 'https://managerial-giselle-bisanjeevni-d402e2ea.koyeb.app/api/contact/website1';
+
+export const cal_ssh_link = 'https://cal.com/ssh-softtech-av6mjx';
