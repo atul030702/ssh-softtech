@@ -40,6 +40,7 @@ const ServicesPage = () => {
                         <ScrollReveal
                             key={service.id}
                             delay={service.delay}
+                            threshold={0.05}
                             className={`group relative p-10 rounded-[3rem] bg-white dark:bg-white/5 border ${service.border} transition-all duration-500 hover:shadow-2xl overflow-hidden flex flex-col`}
                         >
                             {/* Animated Accent Glow */}

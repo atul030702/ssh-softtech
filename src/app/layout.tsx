@@ -15,14 +15,30 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SSH Softtech",
   description: "A fast-growing technology and AI solutions company delivering intelligent, scalable, and business-ready software products for startups, SMEs, and enterprises.",
-  keywords: ['Software company', 'ai agents', 'Custom software solutions', 'Web Application Development', 'Mobile App Development', 'AI Chatbots', 'Machine Learning', 'Data Analytics', 'Cloud Solutions', 'Saas Development', 'E-commerce Development', 'Online Store Development', 'Top Rated software agency', 'Startup', 'SSH Softtech'],
+  keywords: ['Software company', 'AI agents', 'Custom software solutions', 'Web Development', 'Mobile App Development', 'AI Chatbots', 'Machine Learning', 'Data Analytics', 'Cloud Solutions', 'Saas Development', 'E-commerce Development', 'Online Store Development', 'Top Rated software agency', 'Startup', 'SSH Softtech'],
+  icons: {
+    icon: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        url: '/favicon.ico',
+        media: '(prefers-color-scheme: light)'
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        url: '/favicon-dark.ico',
+        media: '(prefers-color-scheme: dark)'
+      }
+    ],
+  },
   openGraph: {
     title: "SSH Softtech",
     description: "A fast-growing technology and AI solutions company delivering intelligent, scalable, and business-ready software products for startups, SMEs, and enterprises.",
     type: "website",
     images: [
       {
-        url: "https://ssh-softtech.vercel.app/og-image.png",
+        url: "https://www.sshsofttech.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "SSH Softtech",
@@ -45,8 +61,8 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <div className="w-full flex flex-col">

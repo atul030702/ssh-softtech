@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
 import Link from "next/link";
+import Image from 'next/image';
 import { usePathname } from "next/navigation";
+import { Menu, X } from 'lucide-react';
 
 import ModeToggle from "./ModeToggle";
 import { navItems } from "../utils/constants";
@@ -67,14 +68,30 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center">
                         <Link href="/"
-                            className="flex items-center gap-2 font-bold text-lg sm:text-xl md:text-2xl tracking-tight"
+                            className="flex items-center font-bold text-lg sm:text-xl md:text-2xl text-slate-900 dark:text-white tracking-tight"
                             onClick={() => setMobileMenuOpen(false)}
                         >
+                            <>
+                                <Image
+                                    src="/ssh_dark.png"
+                                    alt="ssh logo"
+                                    height={40}
+                                    width={40}
+                                    className="hidden dark:block mr-2"
+                                />
+                                <Image
+                                    src="/ssh_light.png"
+                                    alt="ssh logo"
+                                    height={40}
+                                    width={40}
+                                    className="block dark:hidden mr-2"
+                                />
+                            </>
                             <span className="text-brand-light dark:text-brand-dark font-extrabold">SSH</span>
-                            <span className="text-slate-900 dark:text-white">SOFTTECH</span>
+                            &nbsp;SOFTTECH
                         </Link>
 
-                        <div className="hidden md:flex items-center gap-8">
+                        <div className="hidden md:flex items-center gap-4 md:gap-8">
                             {navItems.map((item) => renderNavItem(item, false))}
                             <ModeToggle />
                         </div>

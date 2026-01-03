@@ -26,10 +26,10 @@ const Products = () => {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-8 mt-4">
                         <ScrollReveal
-                            className="max-w-4xl mx-auto mb-16"
+                            className="max-w-5xl mx-auto mb-12"
                             delay={0.1}
                         >
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-black tracking-tight mb-6 animate-fade-in-up">
+                            <h1 className="max-w-4xl mx-auto text-3xl md:text-4xl lg:text-5xl leading-tight font-black tracking-tight mb-4 animate-fade-in-up">
                                 Connect, Process, & Scale operations using our{' '}
                                 <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-brand-light dark:from-blue-600 dark:via-brand-dark dark:to-blue-600 animate-gradient-x">
                                     AI Product Suite
@@ -43,7 +43,7 @@ const Products = () => {
                         </ScrollReveal>
 
                         <ScrollReveal delay={0.2}
-                            className="flex flex-col sm:flex-row items-center sm:justify-center gap-8 w-full sm:w-auto mb-16"
+                            className="flex flex-col sm:flex-row items-center sm:justify-center gap-8 w-full sm:w-auto mb-12"
                         >
                             <button
                                 popoverTarget="contact-form-popover"
@@ -66,12 +66,12 @@ const Products = () => {
                         </ScrollReveal>
 
                         <ScrollReveal
-                            className="flex flex-col justify-center items-center"
+                            className="flex flex-col justify-center items-center space-y-4"
                             delay={0.3}
                         >
-                            <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-4">
+                            <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap">
                                 {marketingData.map((item, index) => (
-                                    <div key={index} className="inline-flex items-center gap-2 bg-slate-200 dark:bg-slate-800 py-1 px-4 rounded-3xl">
+                                    <div key={index} className="inline-flex items-center gap-2 bg-slate-200 dark:bg-slate-800 py-1 px-4 mb-2 sm:mb-4 mr-2 sm:mr-4 md:mr-8 rounded-3xl">
                                         <div className="w-4 h-4 flex items-center justify-center rounded-full bg-green-600 dark:bg-green-500">
                                             <Check size={14} className="text-white font-bold" />
                                         </div>
@@ -81,9 +81,9 @@ const Products = () => {
                             </div>
 
                             <img
-                                src="./product_hero_image.png"
-                                alt="product hero image"
-                                className="w-full object-cover"
+                                src="./product-placeholder.png"
+                                alt="product placeholder image"
+                                className="w-full object-cover rounded-xl"
                                 loading="lazy"
                                 decoding="async"
                                 draggable={false}
@@ -94,7 +94,7 @@ const Products = () => {
             </section>
 
             {/* --- DETAILED PRODUCTS --- */}
-            <section className="py-24 space-y-32">
+            <section className="py-20 md:py-24 space-y-24 md:space-y-32">
                 {mainProducts.map((product, i) => (
                     <div key={i} className={`max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
 
@@ -199,7 +199,7 @@ const Products = () => {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, i) => (
-                            <div key={i} className="text-center animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                            <div key={i} className="text-center animate-fade-in-up">
                                 <div className="text-4xl md:text-5xl font-black text-brand-600 dark:text-brand-400 mb-2">{stat.value}</div>
                                 <div className="text-sm font-bold uppercase tracking-widest text-slate-500 dark:text-gray-500">{stat.label}</div>
                             </div>

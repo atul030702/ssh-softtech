@@ -104,7 +104,7 @@ const ChatWidget = () => {
                     absolute bottom-0 right-0
                     origin-bottom-right transition-all duration-300 ease-out 
                     ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}
-                    w-[400px] h-[600px] bg-white dark:bg-slate-900 
+                    w-[calc(100vw-32px)] sm:w-[400px] h-[calc(100vh-100px)] sm:h-[600px] bg-white dark:bg-slate-900 
                     rounded-2xl shadow-2xl border border-slate-200 dark:border-white/10 
                     flex flex-col overflow-hidden z-20
                 `}
