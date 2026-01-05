@@ -17,7 +17,7 @@ export const mainProducts = [
         ],
         icon: React.createElement(MessageSquare, { className: "text-blue-500", size: 32 }),
         color: "from-blue-600/20 to-cyan-500/20",
-        image: "/chatbot.png",
+        image: "/chatbot.webp",
         videoId: "qlMRQpaMqes?si=Ji9Zw8nzeq6csN9X"
     },
     {
@@ -32,7 +32,7 @@ export const mainProducts = [
         ],
         icon: React.createElement(Mic, { className: "text-purple-500", size: 32 }),
         color: "from-purple-600/20 to-pink-500/20",
-        image: "/voice_agent.png",
+        image: "/voice_agent.webp",
         videoId: "dPc3_8BZKIs?si=-d543HyL_5J-jw1Q"
     },
     {
@@ -47,7 +47,7 @@ export const mainProducts = [
         ],
         icon: React.createElement(FileSearch, { className: "text-emerald-500", size: 32 }),
         color: "from-emerald-600/20 to-teal-500/20",
-        image: "/extract_agent.png",
+        image: "/extract_agent.webp",
         videoId: "CQeM37iB2KY?si=ETY0KquVQUJYfV_t"
     }
 ];

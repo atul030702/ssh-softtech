@@ -77,14 +77,16 @@ const Navbar = () => {
                                     alt="ssh logo"
                                     height={40}
                                     width={40}
-                                    className="hidden dark:block mr-2"
+                                    className="hidden dark:block mr-2 object-contain"
+                                    priority
                                 />
                                 <Image
                                     src="/ssh_light.png"
                                     alt="ssh logo"
                                     height={40}
                                     width={40}
-                                    className="block dark:hidden mr-2"
+                                    className="block dark:hidden mr-2 object-contain"
+                                    priority
                                 />
                             </>
                             <span className="text-brand-light dark:text-brand-dark font-extrabold">SSH</span>

@@ -81,7 +81,7 @@ const Products = () => {
                             </div>
 
                             <img
-                                src="./product-placeholder.png"
+                                src="/product-placeholder.webp"
                                 alt="product placeholder image"
                                 className="w-full object-cover rounded-xl"
                                 loading="lazy"
