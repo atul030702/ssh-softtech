@@ -49,6 +49,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { AuthProvider } from "../context/AuthContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,14 +67,16 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="w-full flex flex-col">
-            <Navbar />
-            <main className="flex flex-1 flex-col">
-              {children}
-            </main>
-            <Footer />
-            <ChatWidget />
-          </div>
+          <AuthProvider>
+            <div className="w-full flex flex-col">
+              <Navbar />
+              <main className="flex flex-1 flex-col">
+                {children}
+              </main>
+              <Footer />
+              <ChatWidget />
+            </div>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

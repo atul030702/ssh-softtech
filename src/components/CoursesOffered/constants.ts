@@ -10,6 +10,7 @@ import {
 
 export const courses = [
     {
+        id: 'full-stack-web-development',
         title: 'Full Stack Web Development',
         description:
             'Master modern web development with React, Node.js, and database management.',
@@ -22,6 +23,7 @@ export const courses = [
         color: 'from-blue-500 to-cyan-500',
     },
     {
+        id: 'ui-ux-design-mastery',
         title: 'UI/UX Design Mastery',
         description:
             'Learn design thinking, prototyping, and creating beautiful user experiences.',
@@ -34,6 +36,7 @@ export const courses = [
         color: 'from-purple-500 to-pink-500',
     },
     {
+        id: 'data-science-analytics',
         title: 'Data Science & Analytics',
         description:
             'Dive into data analysis, visualization, and machine learning fundamentals.',
@@ -46,6 +49,7 @@ export const courses = [
         color: 'from-green-500 to-emerald-500',
     },
     {
+        id: 'mobile-app-development',
         title: 'Mobile App Development',
         description:
             'Build native and cross-platform mobile apps for iOS and Android.',
@@ -58,6 +62,7 @@ export const courses = [
         color: 'from-orange-500 to-red-500',
     },
     {
+        id: 'cloud-architecture',
         title: 'Cloud Architecture',
         description:
             'Master AWS, Azure, and cloud-native application development.',
@@ -70,6 +75,7 @@ export const courses = [
         color: 'from-indigo-500 to-blue-500',
     },
     {
+        id: 'ai-machine-learning',
         title: 'AI & Machine Learning',
         description:
             'Explore artificial intelligence, deep learning, and neural networks.',

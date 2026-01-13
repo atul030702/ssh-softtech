@@ -1,12 +1,26 @@
+"use client";
+
+import { useRouter } from 'next/navigation';
 import {
     Clock,
     Users,
 } from 'lucide-react';
 
+import { useAuth } from '@/context/AuthContext';
 import ScrollReveal from '../ui/ScrollReveal';
 import { courses } from './constants';
 
 const CoursesSection = () => {
+    const router = useRouter();
+    const { isAuthenticated } = useAuth();
+
+    const handleCourseClick = (courseId: string) => {
+        if (isAuthenticated) {
+            router.push(`/${courseId}`);
+        } else {
+            router.push(`/login?redirect=/${courseId}`);
+        }
+    };
 
     return (
         <section id="courses" className="py-24 bg-white dark:bg-dark-950">
@@ -33,6 +47,7 @@ const CoursesSection = () => {
                             key={index}
                             delay={index * 0.1}
                             className="bento-card p-0 overflow-hidden h-full group cursor-pointer"
+                            onClick={() => handleCourseClick(course.id || '')}
                         >
                             <div className="relative overflow-hidden">
                                 <img
