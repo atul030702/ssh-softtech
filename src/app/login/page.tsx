@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { MoveLeft } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useState, Suspense } from "react";
