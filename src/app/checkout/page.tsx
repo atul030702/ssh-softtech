@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
     CreditCard,
@@ -13,7 +13,7 @@ import {
 import { courses } from '@/components/CoursesOffered/constants';
 import { useAuth } from '@/context/AuthContext';
 
-const CheckoutPage = () => {
+const CheckoutContent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { isAuthenticated, loading: authLoading } = useAuth();
@@ -241,4 +241,14 @@ const CheckoutPage = () => {
     );
 };
 
-export default CheckoutPage;
+export default function CheckoutPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-dark-950">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            </div>
+        }>
+            <CheckoutContent />
+        </Suspense>
+    );
+}
