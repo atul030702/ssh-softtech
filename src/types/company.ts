@@ -1,3 +1,5 @@
+import { User } from "@supabase/supabase-js";
+
 export interface SSHService {
     id: string;
     title: string;
@@ -37,4 +39,17 @@ export interface Message {
     text: string;
     sender: 'user' | 'bot';
     timestamp: Date;
+}
+
+export interface SignupFormError {
+    email: string;
+    password: string;
+    confirmPassword?: string;
+}
+
+export interface AuthContextType {
+    isAuthenticated: boolean;
+    loading: boolean;
+    user: User | null;
+    logOut: () => Promise<{ errorMessage: string | null }>;
 }
