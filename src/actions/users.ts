@@ -49,7 +49,10 @@ export const signUpAction = async (email: string, password: string, name: string
             },
         });*/
 
-        return { errorMessage: null };
+        return { 
+            message: `We have sent a verification link to ${data.user?.email}. Please check your inbox and click the link to verify your account.`,
+            errorMessage: null
+        };
 
     } catch (error) {
         return handleError(error);

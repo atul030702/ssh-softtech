@@ -1,43 +1,54 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
+import { logOutAction } from "@/actions/users";
+import { createClient } from "@/auth/client";
+import { User } from "@supabase/supabase-js";
+import { AuthContextType } from "@/types/company";
 
-interface AuthContextType {
-    isAuthenticated: boolean;
-    login: () => void;
-    logout: () => void;
-    user: { name: string; email: string } | null;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(false);
+    const supabase = createClient();
 
     useEffect(() => {
-        // Check local storage or similar for persistence if needed
-        const storedAuth = localStorage.getItem("isAuthenticated");
-        if (storedAuth === "true") {
-            setIsAuthenticated(true);
-            setUser({ name: "Demo User", email: "demo@example.com" });
-        }
+        const getUser = async () => {
+            setLoading(true);
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+            setLoading(false);
+        };
+
+        getUser();
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setLoading(true);
+            setUser(session?.user ?? null);
+            setLoading(false);
+        });
+
+        return () => subscription.unsubscribe();
     }, []);
 
-    const login = () => {
-        setIsAuthenticated(true);
-        setUser({ name: "Demo User", email: "demo@example.com" });
-        localStorage.setItem("isAuthenticated", "true");
-    };
-
-    const logout = () => {
-        setIsAuthenticated(false);
-        setUser(null);
-        localStorage.removeItem("isAuthenticated");
+    const logOut = async () => {
+        setLoading(true);
+        const result = await logOutAction();
+        if (!result.errorMessage) {
+            setUser(null);
+        }
+        setLoading(false);
+        return result;
     };
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout, user }}>
+        <AuthContext.Provider value={{
+            isAuthenticated: !!user,
+            user,
+            logOut,
+            loading
+        }}>
             {children}
         </AuthContext.Provider>
     );
@@ -45,7 +56,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useAuth = () => {
     const context = useContext(AuthContext);
-    if (context === undefined) {
+    if (!context) {
         throw new Error("useAuth must be used within an AuthProvider");
     }
     return context;

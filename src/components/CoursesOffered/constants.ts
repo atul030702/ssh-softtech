@@ -10,6 +10,19 @@ import {
 
 export const courses = [
     {
+        id: 'ai-machine-learning',
+        title: 'AI & Autonomus Agents',
+        description:
+            'Explore artificial intelligence, autonomous agents, and how to orchestrate them.',
+        icon: React.createElement(Brain, { size: 28 }),
+        duration: '12 weeks',
+        students: '1.1k+',
+        image:
+            'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop',
+        level: 'Advanced',
+        color: 'from-violet-500 to-purple-500',
+    },
+    {
         id: 'full-stack-web-development',
         title: 'Full Stack Web Development',
         description:
@@ -74,17 +87,41 @@ export const courses = [
         level: 'Advanced',
         color: 'from-indigo-500 to-blue-500',
     },
+];
+
+export const schedule = {
+    time: "Sat/Sun 8:00 PM IST",
+    platform: "Google Meet",
+    duration: "Live Interactive Sessions"
+};
+
+export const syllabus = [
     {
-        id: 'ai-machine-learning',
-        title: 'AI & Machine Learning',
-        description:
-            'Explore artificial intelligence, deep learning, and neural networks.',
-        icon: React.createElement(Brain, { size: 28 }),
-        duration: '14 weeks',
-        students: '1.1k+',
-        image:
-            'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop',
-        level: 'Advanced',
-        color: 'from-violet-500 to-purple-500',
+        week: "Week 1-2",
+        title: "Foundation & Setup",
+        topics: ["Environment Setup", "Core Concepts", "Best Practices", "First Project"]
     },
+    {
+        week: "Week 3-5",
+        title: "Deep Dive & Implementation",
+        topics: ["Advanced Patterns", "State Management", "API Integration", "Real-world Scenarios"]
+    },
+    {
+        week: "Week 6-8",
+        title: "Advanced Concepts",
+        topics: ["Performance Optimization", "Security", "Testing", "Deployment Pipelines"]
+    },
+    {
+        week: "Week 9+",
+        title: "Capstone Project",
+        topics: ["Project Planning", "Development Phase", "Code Review", "Final Presentation"]
+    }
+];
+
+export const prerequisites = [
+    "A working laptop/PC (Windows, Mac, or Linux)",
+    "Stable internet connection",
+    "Basic logical thinking",
+    "No prior coding experience required (for beginner courses)",
+    "Commitment (6-8 hours/week)"
 ];

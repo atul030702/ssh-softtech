@@ -6,6 +6,7 @@ import ThemeProvider from "../Provider/ThemeProvider";
 import Navbar from "../components/Navbar";
 import ChatWidget from "../components/ChatWidget/ChatWidget";
 import Footer from "../components/Footer";
+import { AuthProvider } from "../context/AuthContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,8 +49,6 @@ export const metadata: Metadata = {
     locale: "en",
   }
 };
-
-import { AuthProvider } from "../context/AuthContext";
 
 export default function RootLayout({
   children,

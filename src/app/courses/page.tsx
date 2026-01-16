@@ -1,7 +1,11 @@
 import CoursesSection from "@/components/CoursesOffered/CourseSection";
 
 const Courses = () => {
-    return <CoursesSection />
+    return (
+        <div>
+            <CoursesSection />
+        </div>
+    );
 };
 
 export default Courses;
