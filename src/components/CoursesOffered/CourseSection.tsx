@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from 'next/navigation';
 import {
     Clock,
     Users,
@@ -7,6 +10,11 @@ import ScrollReveal from '../ui/ScrollReveal';
 import { courses } from './constants';
 
 const CoursesSection = () => {
+    const router = useRouter();
+
+    const handleCourseClick = (courseId: string) => {
+        router.push(`/courses/${courseId}`);
+    };
 
     return (
         <section id="courses" className="py-24 bg-white dark:bg-dark-950">
@@ -33,6 +41,7 @@ const CoursesSection = () => {
                             key={index}
                             delay={index * 0.1}
                             className="bento-card p-0 overflow-hidden h-full group cursor-pointer"
+                            onClick={() => handleCourseClick(course.id)}
                         >
                             <div className="relative overflow-hidden">
                                 <img

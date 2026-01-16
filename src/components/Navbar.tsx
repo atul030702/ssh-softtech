@@ -3,14 +3,18 @@
 import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Image from 'next/image';
-import { usePathname } from "next/navigation";
-import { Menu, X } from 'lucide-react';
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, LogOut } from 'lucide-react';
 
+import { useAuth } from "@/context/AuthContext";
 import ModeToggle from "./ModeToggle";
 import { navItems } from "../utils/constants";
 
 const Navbar = () => {
+    const { isAuthenticated, logOut, loading } = useAuth();
     const pathname = usePathname();
+    const router = useRouter();
+
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -28,6 +32,11 @@ const Navbar = () => {
 
     const handleNavigation = () => {
         setMobileMenuOpen(false);
+    };
+
+    const handleLogout = async () => {
+        await logOut();
+        router.push("/login");
     };
 
     const renderNavItem = (item: { href: string; label: string }, isMobile = false) => {
@@ -95,6 +104,16 @@ const Navbar = () => {
 
                         <div className="hidden md:flex items-center gap-4 md:gap-8">
                             {navItems.map((item) => renderNavItem(item, false))}
+                            {isAuthenticated && (
+                                <button
+                                    onClick={handleLogout}
+                                    disabled={loading}
+                                    title="Sign Out"
+                                    className="p-2 text-slate-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 transition-colors cursor-pointer"
+                                >
+                                    <LogOut size={20} />
+                                </button>
+                            )}
                             <ModeToggle />
                         </div>
 
@@ -114,6 +133,16 @@ const Navbar = () => {
                 {mobileMenuOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-slate-100 dark:bg-[#050B14] border-b border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-2 shadow-2xl">
                         {navItems.map((item) => renderNavItem(item, true))}
+                        {isAuthenticated && (
+                            <button
+                                onClick={handleLogout}
+                                disabled={loading}
+                                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-red-500 font-medium hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                            >
+                                <LogOut size={20} />
+                                Sign Out
+                            </button>
+                        )}
                     </div>
                 )}
             </nav>

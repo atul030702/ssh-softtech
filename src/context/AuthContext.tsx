@@ -10,11 +10,12 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const supabase = createClient();
 
     useEffect(() => {
         const getUser = async () => {
+            setLoading(true);
             const { data: { user } } = await supabase.auth.getUser();
             setUser(user);
             setLoading(false);
@@ -23,6 +24,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         getUser();
 
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setLoading(true);
             setUser(session?.user ?? null);
             setLoading(false);
         });
@@ -31,10 +33,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     const logOut = async () => {
+        setLoading(true);
         const result = await logOutAction();
         if (!result.errorMessage) {
             setUser(null);
         }
+        setLoading(false);
         return result;
     };
 

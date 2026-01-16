@@ -20,7 +20,7 @@ const AuthForm = () => {
 
     const router = useRouter();
     const searchParams = useSearchParams();
-    const redirectPath = searchParams.get("redirect") || "/";
+    const redirectPath = searchParams.get("redirect") || searchParams.get("next") || "/";
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -47,15 +47,15 @@ const AuthForm = () => {
         try {
             if (mode === 'login') {
                 const response = await loginAction(email, password);
-                console.log(response);
+
                 if (response.errorMessage) {
                     setAuthError(response.errorMessage);
                 } else {
-                    // router.push(redirectPath);
+                    router.push(redirectPath);
                 }
             } else {
                 const response = await signUpAction(email, password, name);
-                console.log(response);
+
                 if (response.errorMessage) {
                     setAuthError(response.errorMessage);
                 } else if ('message' in response) {
