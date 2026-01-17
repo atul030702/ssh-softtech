@@ -126,11 +126,10 @@ const ServicesPage = () => {
                                         <p className="text-slate-600 dark:text-slate-300 text-center italic text-lg">
                                             "SSH Softtech redefined our operational efficiency by building a custom software layer that thinks as much as it executes."
                                         </p>
-                                        <div className="flex items-center justify-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/10" />
+                                        <div className="flex items-center justify-end gap-3">
                                             <div className="text-left">
-                                                <p className="text-slate-900 dark:text-white font-bold text-sm">Marcus Thorne</p>
-                                                <p className="text-slate-500 text-xs">CTO, Vanguard Dynamics</p>
+                                                <p className="text-slate-900 dark:text-white font-bold text-sm">Amit Kumar</p>
+                                                <p className="text-slate-500 text-xs">SUSPL</p>
                                             </div>
                                         </div>
                                     </div>
