@@ -7,14 +7,14 @@ export const loginAction = async (email: string, password: string) => {
     try {
         const { auth } = await createClient();
 
-        const { error } = await auth.signInWithPassword({
+        const { data, error } = await auth.signInWithPassword({
             email,
             password
         });
 
         if(error) throw error;
-
-        return { errorMessage: null };
+        
+        return { user: data?.user, errorMessage: null };
 
     } catch (error) {
         return handleError(error);

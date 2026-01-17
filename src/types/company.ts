@@ -41,7 +41,7 @@ export interface Message {
     timestamp: Date;
 }
 
-export interface SignupFormError {
+export interface SignupFormErrorType {
     email: string;
     password: string;
     confirmPassword?: string;
@@ -52,4 +52,5 @@ export interface AuthContextType {
     loading: boolean;
     user: User | null;
     logOut: () => Promise<{ errorMessage: string | null }>;
+    setUserData: (data: User | null) => void;
 }

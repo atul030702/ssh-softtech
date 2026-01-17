@@ -6,18 +6,20 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 import { loginAction, signUpAction } from '@/actions/users';
 import { handleSignupFormError } from '@/utils/handleError';
-import { SignupFormError } from '@/types/company';
+import { SignupFormErrorType } from '@/types/company';
+import { useAuth } from '@/context/AuthContext';
 import { GoogleIcon } from '@/utils/footerConstant';
 
 const AuthForm = () => {
     const [mode, setMode] = useState<'login' | 'signup'>('login');
     const [loading, setLoading] = useState(false);
-    const [formError, setFormError] = useState<SignupFormError | string | null>(null);
+    const [formError, setFormError] = useState<SignupFormErrorType | string | null>(null);
     const [authError, setAuthError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    const { setUserData } = useAuth();
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirectPath = searchParams.get("redirect") || searchParams.get("next") || "/";
@@ -50,7 +52,8 @@ const AuthForm = () => {
 
                 if (response.errorMessage) {
                     setAuthError(response.errorMessage);
-                } else {
+                } else if ('user' in response) {
+                    setUserData(response.user ?? null);
                     router.push(redirectPath);
                 }
             } else {

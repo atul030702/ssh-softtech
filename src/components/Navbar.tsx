@@ -36,7 +36,7 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         await logOut();
-        router.push("/login");
+        router.push("/");
     };
 
     const renderNavItem = (item: { href: string; label: string }, isMobile = false) => {
