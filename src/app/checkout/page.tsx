@@ -173,7 +173,7 @@ const CheckoutContent = () => {
                                     ) : (
                                         <>
                                             <Lock size={18} />
-                                            Pay $10.00
+                                            Pay $5.00
                                         </>
                                     )}
                                 </button>
@@ -207,7 +207,7 @@ const CheckoutContent = () => {
                                             {course.title}
                                         </h3>
                                         <span className="inline-block mt-2 text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                                            Monthly Subscription
+                                            One Session
                                         </span>
                                     </div>
                                 </div>
@@ -215,15 +215,15 @@ const CheckoutContent = () => {
                                 <div className="space-y-3 pt-6 border-t border-gray-100 dark:border-gray-800">
                                     <div className="flex justify-between text-gray-600 dark:text-gray-400">
                                         <span>Subtotal</span>
-                                        <span>$10.00</span>
+                                        <span>$5.00</span>
                                     </div>
                                     <div className="flex justify-between text-gray-600 dark:text-gray-400">
                                         <span>Tax</span>
-                                        <span>$0.00</span>
+                                        <span>Included</span>
                                     </div>
                                     <div className="flex justify-between items-center pt-3 border-t border-gray-100 dark:border-gray-800">
                                         <span className="font-bold text-gray-900 dark:text-white">Total</span>
-                                        <span className="text-2xl font-bold text-gray-900 dark:text-white">$10.00<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/mo</span></span>
+                                        <span className="text-2xl font-bold text-gray-900 dark:text-white">$5.00<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/session</span></span>
                                     </div>
                                 </div>
                             </div>

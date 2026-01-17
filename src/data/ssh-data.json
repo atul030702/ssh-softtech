@@ -1,13 +1,17 @@
 {
     "company_info": {
         "name": "SSH Softtech Solution",
+        "co-founders": [
+            "Shreyansh Ranjan",
+            "Hasnain Akhtar"
+        ],
         "website": "https://www.sshsofttech.com",
         "email": "connect@sshsofttech.com",
         "phone": {
             "india": "+91 7903985142",
             "usa": "+1 302 401 9055"
         },
-        "profile_summary": "A fast-growing technology and AI solutions company delivering intelligent, scalable, and business-ready software products for startups, SMEs, and enterprises."
+        "profile_summary": "SSH SOFTTECH SOLUTION is a technology-driven company delivering business-ready AI products, custom software services, and industry-oriented professional training programs. We focus on building production-grade platforms that help organizations automate operations, reduce costs, and scale efficiently."
     },
     "value_proposition": [
         "Served 20+ clients across multiple industries.",
@@ -20,12 +24,12 @@
         {
             "id": "ai-chatbot",
             "name": "AI Chatbot - Document Upload & Intelligent Q&A",
-            "description": "An enterprise-grade AI chatbot that enables organizations to upload documents such as PDFs, policies, manuals, and reports. Users can ask questions in natural language and receive accurate, context-aware answers.",
+            "description": "Convert static documents into interactive knowledge systems. Businesses can upload PDFs, manuals, and reports to get instant, context-aware answers.",
             "key_features": [
-                "Document-based Q&A (PDFs, manuals, reports)",
-                "Natural language processing",
-                "Context-aware answers",
-                "Converts static documents into interactive knowledge systems"
+                "Natural Language Understanding",
+                "PDF & Document Knowledge Base",
+                "Instant Multi-Source Retrieval",
+                "Context-Aware Conversations"
             ],
             "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
@@ -33,12 +37,12 @@
         {
             "id": "ai-voice-agent",
             "name": "AI Voice Agent - Inbound & Outbound Call Automation",
-            "description": "A conversational AI voice agent designed to manage inbound and outbound calls. It automates customer support, appointment reminders, follow-ups, and information dissemination using natural, human-like speech.",
+            "description": "Human-like voice AI handling inbound and outbound calls. Automates scheduling, routing, and follow-ups while reducing operational costs by up to 60%.",
             "key_features": [
-                "Inbound & Outbound call automation",
-                "Natural, human-like speech",
-                "Appointment scheduling and routing",
-                "Automated follow-ups"
+                "Human-like Voice Synthesis",
+                "24/7 Call Handling",
+                "Automated Appointment Booking",
+                "Intelligent Call Routing"
             ],
             "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
@@ -46,12 +50,12 @@
         {
             "id": "extract-agent",
             "name": "Extract Agent - Intelligent Document & Handwritten Data Extraction",
-            "description": "An advanced AI extraction solution capable of reading scanned documents, invoices, and handwritten forms. It extracts structured text and key-value information directly into databases.",
+            "description": "AI-powered system that reads handwritten forms, scanned documents, and invoices to extract structured data directly into databases or CRMs.",
             "key_features": [
-                "Reads scanned documents and handwritten forms",
-                "Extracts structured text and key-value pairs",
-                "Automates data entry into databases",
-                "Supports invoices and PDFs"
+                "Handwriting Recognition",
+                "Invoice Data Extraction",
+                "Direct Database Integration",
+                "AI-Based Error Correction"
             ],
             "pricing-policy": "Contact for quote",
             "contact_for_pricing": true
@@ -195,6 +199,20 @@
                 "Design handoff"
             ],
             "project": "Complete UI/UX case study"
+        }
+    ],
+    "clients": [
+        {
+            "name": "Bhandara",
+            "link": "https://www.bhandara.app"
+        },
+        {
+            "name": "BioSanjeevani",
+            "link": "https://www.biosanjeevani.com"
+        },
+        {
+            "name": "SUSPL",
+            "link": "https://suspl.stratosphere.co.in"
         }
     ]
 }

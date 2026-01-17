@@ -8,7 +8,9 @@ import {
     BookOpen,
     Shield,
     ArrowRight,
-    Users
+    Users,
+    Layers,
+    Rocket
 } from 'lucide-react';
 
 import { courses } from '@/components/CoursesOffered/constants';
@@ -88,6 +90,51 @@ const CourseDetailPage = () => {
 
                     {/* Left Column: Content */}
                     <div className="lg:col-span-2 space-y-12">
+                        {/* Key Topics Section */}
+                        {course.keyTopics && (
+                            <section>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="p-3 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+                                        <Layers size={24} />
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">What You'll Learn</h2>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    {course.keyTopics.map((topic, idx) => (
+                                        <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
+                                            <div className="mt-1">
+                                                <CheckCircle size={18} className="text-brand-500" />
+                                            </div>
+                                            <span className="text-gray-700 dark:text-gray-300 font-medium">{topic}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Project Section */}
+                        {course.project && (
+                            <section>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="p-3 rounded-xl bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400">
+                                        <Rocket size={24} />
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Real-World Project</h2>
+                                </div>
+                                <div className="p-6 md:p-8 rounded-2xl bg-linear-to-br from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-900 border border-gray-200 dark:border-gray-800 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-500/10 transition-colors duration-500" />
+
+                                    <div className="relative z-10">
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                            {course.project}
+                                        </h3>
+                                        <div className="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-medium">
+                                            <span>Capstone Application</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
 
                         {/* Syllabus Section */}
                         <section>
