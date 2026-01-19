@@ -19,7 +19,7 @@ export const testimonials = [
     },
     {
         name: "SUSPL",
-        url: "https://suspl.stratosphere.co.in",
+        url: "https://ptsnsuniversity.ac.in",
         rating: 4,
         tag: "IT Consulting",
         content: "The custom dashboard and tracking solution provided by SSH Softtech redefined our operational efficiency. Their ability to handle complex backend logic while maintaining a simple, intuitive user interface for our field staff was impressive.",
