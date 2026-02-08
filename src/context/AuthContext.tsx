@@ -1,37 +1,20 @@
 "use client";
 
-import { useState, createContext, useContext, useEffect } from "react";
-import { User } from "@supabase/supabase-js";
-
-import { logOutAction } from "@/actions/users";
-import { createClient } from "@/auth/client";
-import { AuthContextType } from "@/types/company";
+import { useState, createContext, useContext } from "react";
+import { AuthContextType, User } from "@/types/company";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(false);
-    const supabase = createClient();
-
-    useEffect(() => {
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-            setLoading(true);
-            setUser(session?.user ?? null);
-            setLoading(false);
-        });
-
-        return () => subscription.unsubscribe();
-    }, [user]);
 
     const logOut = async () => {
         setLoading(true);
-        const result = await logOutAction();
-        if (!result.errorMessage) {
-            setUser(null);
-        }
+        // Currently API does not support logout, so we just clear client state
+        setUser(null);
         setLoading(false);
-        return result;
+        return { errorMessage: null };
     };
 
     const setUserData = (data: User | null) => {

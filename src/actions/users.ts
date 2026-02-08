@@ -1,18 +1,20 @@
 "use server";
 
-import { createClient } from "@/auth/server";
 import { handleError } from "@/utils/handleError";
 
 export const loginAction = async (email: string, password: string) => {
     try {
-        const { auth } = await createClient();
-
-        const { data, error } = await auth.signInWithPassword({
-            email,
-            password
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
         });
 
-        if(error) throw error;
+        const data = await response.json();
+
+        if(data.error) throw data.error;
         
         return { user: data?.user, errorMessage: null };
 
@@ -24,32 +26,22 @@ export const loginAction = async (email: string, password: string) => {
 
 export const signUpAction = async (email: string, password: string, name: string) => {
     try {
-        const { auth } = await createClient();
-
-        const { data, error } = await auth.signUp({
-            email,
-            password,
-            options: {
-                data: {
-                    full_name: name,
-                },
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
             },
+            body: JSON.stringify({ email, password, name }),
         });
 
-        if(error) throw error;
+        const data = await response.json();
+
+        if(data.error) throw data.error;
 
         const userId = data.user?.id;
         if(!userId) throw new Error("Error signing up");
 
-        // add user to database
-        /*await prisma.user.create({
-            data: {
-                id: userId,
-                email,
-            },
-        });*/
-
-        return { 
+        return {
             message: `We have sent a verification link to ${data.user?.email}. Please check your inbox and click the link to verify your account.`,
             errorMessage: null
         };
@@ -59,7 +51,7 @@ export const signUpAction = async (email: string, password: string, name: string
     }
 };
 
-export const signInWithGoogle = async (): Promise<{errorMessage: string | null; redirectUrl: string | null} > => {
+/*export const signInWithGoogle = async (): Promise<{errorMessage: string | null; redirectUrl: string | null} > => {
     const authCallbackUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`;
 
     try {
@@ -100,4 +92,4 @@ export const logOutAction = async () => {
     } catch (error) {
         return handleError(error);
     }
-};
+};*/

@@ -1,4 +1,8 @@
-import { User } from "@supabase/supabase-js";
+export interface User {
+    id: string;
+    email: string;
+    name: string;
+}
 
 export interface SSHService {
     id: string;
@@ -51,6 +55,6 @@ export interface AuthContextType {
     isAuthenticated: boolean;
     loading: boolean;
     user: User | null;
-    logOut: () => Promise<{ errorMessage: string | null }>;
     setUserData: (data: User | null) => void;
+    logOut: () => Promise<any>;
 }
