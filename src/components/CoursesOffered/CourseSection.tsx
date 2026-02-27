@@ -1,20 +1,71 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
     Clock,
     Users,
+    Brain,
+    Code2,
+    Database,
+    Smartphone,
+    Cloud,
+    Palette,
 } from 'lucide-react';
 
 import ScrollReveal from '../ui/ScrollReveal';
-import { courses } from './constants';
+import { getCourses, Course } from '@/actions/courses';
+import React from 'react';
 
-const CoursesSection = () => {
+// Mapped type for UI
+interface CourseUI extends Course {
+    icon: React.ReactNode;
+    students: string;
+    color: string;
+    image: string;
+}
+
+const CourseSection = () => {
     const router = useRouter();
+    const [coursesList, setCoursesList] = useState<CourseUI[]>([]);
 
     const handleCourseClick = (courseId: string) => {
         router.push(`/courses/${courseId}`);
     };
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            const data = await getCourses();
+            if (Array.isArray(data)) {
+                // Map API data to UI format
+                const mappedCourses = data.map((course, index) => {
+                    // Generate color based on index
+                    const colors = [
+                        'from-violet-500 to-purple-500',
+                        'from-blue-500 to-cyan-500',
+                        'from-orange-500 to-red-500',
+                        'from-green-500 to-emerald-500',
+                        'from-indigo-500 to-blue-500',
+                        'from-purple-500 to-pink-500',
+                    ];
+
+                    // Generate icon based on title or random
+                    const icons = [Brain, Code2, Smartphone, Database, Cloud, Palette];
+                    const IconComponent = icons[index % icons.length]; // Cycle through icons
+
+                    return {
+                        ...course,
+                        image: course.thumbnail,
+                        icon: React.createElement(IconComponent, { size: 28 }),
+                        students: '1.2k+', // Placeholder
+                        color: colors[index % colors.length],
+                    };
+                });
+                setCoursesList(mappedCourses);
+            }
+        };
+        fetchCourses();
+    }, []);
 
     return (
         <section id="courses" className="py-24 bg-white dark:bg-dark-950">
@@ -36,9 +87,9 @@ const CoursesSection = () => {
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {courses.map((course, index) => (
+                    {coursesList.map((course, index) => (
                         <ScrollReveal
-                            key={index}
+                            key={course.id}
                             delay={index * 0.1}
                             className="bento-card p-0 overflow-hidden h-full group cursor-pointer"
                             onClick={() => handleCourseClick(course.id)}
@@ -65,7 +116,7 @@ const CoursesSection = () => {
                                 <h3 className="text-xl font-semibold mb-3 text-black/80 dark:text-white">
                                     {course.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                                     {course.description}
                                 </p>
                                 <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -87,4 +138,4 @@ const CoursesSection = () => {
     );
 };
 
-export default CoursesSection;
+export default CourseSection;

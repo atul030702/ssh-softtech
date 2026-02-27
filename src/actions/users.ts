@@ -13,6 +13,7 @@ export const loginAction = async (email: string, password: string) => {
         });
 
         const data = await response.json();
+        console.log(data);
 
         if(data.error) throw data.error;
         
@@ -35,6 +36,7 @@ export const signUpAction = async (email: string, password: string, name: string
         });
 
         const data = await response.json();
+        console.log(data);
 
         if(data.error) throw data.error;
 
@@ -78,18 +80,20 @@ export const signUpAction = async (email: string, password: string, name: string
             redirectUrl: null, 
         };
     }
-};
+};*/
 
 
 export const logOutAction = async () => {
     try {
-        const { auth } = await createClient();
+        const response = await fetch(`https://ssh-server-gifd.onrender.com/api/auth/logout`);
 
-        const {  error } = await auth.signOut();;
-        if(error) throw error;
+        const data = await response.json();
+        console.log(data);
+
+        if(data.error) throw data.error;
 
         return { errorMessage: null };
     } catch (error) {
         return handleError(error);
     }
-};*/
+};

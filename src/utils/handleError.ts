@@ -1,7 +1,11 @@
 export const handleError = (error: unknown) => {
-    if(error instanceof Error) {
+    if (error instanceof Error) {
         return { errorMessage: error.message };
-    }else {
+    } else if (typeof error === "string") {
+        return { errorMessage: error };
+    } else if (typeof error === "object" && error !== null && "error" in error) {
+        return { errorMessage: (error as { error: string }).error };
+    } else {
         return { errorMessage: "An error occurred" };
     }
 };
